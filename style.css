@@ -5,7 +5,8 @@ body
 
 #reset-button
 {
-    padding: 5px;
+    padding: 15px;
+    font-size: 1.5em;
 }
 
 #player1-score
@@ -21,7 +22,7 @@ body
 line
 {
     stroke: white;
-    stroke-width: 20;
+    stroke-width: 35;
 }
 
 .boxes

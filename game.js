@@ -39,228 +39,222 @@ var lines = {
     box9: "nobody",
 };
 
-var box1 = {
-    isFull: false,
-    top: function() { return lines["line1"]; },
-    left: function() { return lines["line4"]; },
-    right: function() { return lines["line5"]; },
-    bottom: function() { return lines["line8"]; },
-    lines_available: function() {
-        var available = 0;
-        if (this.top() == false) {
-            available++;
-        }
-        if (this.left() == false) {
-            available++;
-        }
-        if (this.right() == false) {
-            available++;
-        }
-        if (this.bottom() == false) {
-            available++;
-        }
+var boxes = {
+    box1: {
+        isFull: false,
+        top: function() { return lines["line1"]; },
+        left: function() { return lines["line4"]; },
+        right: function() { return lines["line5"]; },
+        bottom: function() { return lines["line8"]; },
+        lines_available: function() {
+            var available = 0;
+            if (this.top() == false) {
+                available++;
+            }
+            if (this.left() == false) {
+                available++;
+            }
+            if (this.right() == false) {
+                available++;
+            }
+            if (this.bottom() == false) {
+                available++;
+            }
 
-        return available;
-    }
-};
+            return available;
+        }
+    },
+    box2: {
+        isFull: false,
+        top: function() { return lines["line2"]; },
+        left: function() { return lines["line5"]; },
+        right: function() { return lines["line6"]; },
+        bottom: function() { return lines["line9"]; },
+        lines_available: function() {
+            var available = 0;
+            if (this.top() == false) {
+                available++;
+            }
+            if (this.left() == false) {
+                available++;
+            }
+            if (this.right() == false) {
+                available++;
+            }
+            if (this.bottom() == false) {
+                available++;
+            }
 
-var box2 = {
-    isFull: false,
-    top: function() { return lines["line2"]; },
-    left: function() { return lines["line5"]; },
-    right: function() { return lines["line6"]; },
-    bottom: function() { return lines["line9"]; },
-    lines_available: function() {
-        var available = 0;
-        if (this.top() == false) {
-            available++;
+            return available;
         }
-        if (this.left() == false) {
-            available++;
-        }
-        if (this.right() == false) {
-            available++;
-        }
-        if (this.bottom() == false) {
-            available++;
-        }
+    },
+    box3: {
+        isFull: false,
+        top: function() { return lines["line3"]; },
+        left: function() { return lines["line6"]; },
+        right: function() { return lines["line7"]; },
+        bottom: function() { return lines["line10"]; },
+        lines_available: function() {
+            var available = 0;
+            if (this.top() == false) {
+                available++;
+            }
+            if (this.left() == false) {
+                available++;
+            }
+            if (this.right() == false) {
+                available++;
+            }
+            if (this.bottom() == false) {
+                available++;
+            }
 
-        return available;
-    }
-};
+            return available;
+        }
+    },
+    box4: {
+        isFull: false,
+        top: function() { return lines["line8"]; },
+        left: function() { return lines["line11"]; },
+        right: function() { return lines["line12"]; },
+        bottom: function() { return lines["line15"]; },
+        lines_available: function() {
+            var available = 0;
+            if (this.top() == false) {
+                available++;
+            }
+            if (this.left() == false) {
+                available++;
+            }
+            if (this.right() == false) {
+                available++;
+            }
+            if (this.bottom() == false) {
+                available++;
+            }
 
-var box3 = {
-    isFull: false,
-    top: function() { return lines["line3"]; },
-    left: function() { return lines["line6"]; },
-    right: function() { return lines["line7"]; },
-    bottom: function() { return lines["line10"]; },
-    lines_available: function() {
-        var available = 0;
-        if (this.top() == false) {
-            available++;
+            return available;
         }
-        if (this.left() == false) {
-            available++;
-        }
-        if (this.right() == false) {
-            available++;
-        }
-        if (this.bottom() == false) {
-            available++;
-        }
+    },
+    box5: {
+        isFull: false,
+        top: function() { return lines["line9"]; },
+        left: function() { return lines["line12"]; },
+        right: function() { return lines["line13"]; },
+        bottom: function() { return lines["line16"]; },
+        lines_available: function() {
+            var available = 0;
+            if (this.top() == false) {
+                available++;
+            }
+            if (this.left() == false) {
+                available++;
+            }
+            if (this.right() == false) {
+                available++;
+            }
+            if (this.bottom() == false) {
+                available++;
+            }
 
-        return available;
-    }
-};
+            return available;
+        }
+    },
+    box6: {
+        isFull: false,
+        top: function() { return lines["line10"]; },
+        left: function() { return lines["line13"]; },
+        right: function() { return lines["line14"]; },
+        bottom: function() { return lines["line17"]; },
+        lines_available: function() {
+            var available = 0;
+            if (this.top() == false) {
+                available++;
+            }
+            if (this.left() == false) {
+                available++;
+            }
+            if (this.right() == false) {
+                available++;
+            }
+            if (this.bottom() == false) {
+                available++;
+            }
 
-var box4 = {
-    isFull: false,
-    top: function() { return lines["line8"]; },
-    left: function() { return lines["line11"]; },
-    right: function() { return lines["line12"]; },
-    bottom: function() { return lines["line15"]; },
-    lines_available: function() {
-        var available = 0;
-        if (this.top() == false) {
-            available++;
+            return available;
         }
-        if (this.left() == false) {
-            available++;
-        }
-        if (this.right() == false) {
-            available++;
-        }
-        if (this.bottom() == false) {
-            available++;
-        }
+    },
+    box7: {
+        isFull: false,
+        top: function() { return lines["line15"]; },
+        left: function() { return lines["line18"]; },
+        right: function() { return lines["line19"]; },
+        bottom: function() { return lines["line22"]; },
+        lines_available: function() {
+            var available = 0;
+            if (this.top() == false) {
+                available++;
+            }
+            if (this.left() == false) {
+                available++;
+            }
+            if (this.right() == false) {
+                available++;
+            }
+            if (this.bottom() == false) {
+                available++;
+            }
 
-        return available;
-    }
-};
+            return available;
+        }
+    },
+    box8: {
+        isFull: false,
+        top: function() { return lines["line16"]; },
+        left: function() { return lines["line19"]; },
+        right: function() { return lines["line20"]; },
+        bottom: function() { return lines["line23"]; },
+        lines_available: function() {
+            var available = 0;
+            if (this.top() == false) {
+                available++;
+            }
+            if (this.left() == false) {
+                available++;
+            }
+            if (this.right() == false) {
+                available++;
+            }
+            if (this.bottom() == false) {
+                available++;
+            }
 
-var box5 = {
-    isFull: false,
-    top: function() { return lines["line9"]; },
-    left: function() { return lines["line12"]; },
-    right: function() { return lines["line13"]; },
-    bottom: function() { return lines["line16"]; },
-    lines_available: function() {
-        var available = 0;
-        if (this.top() == false) {
-            available++;
+            return available;
         }
-        if (this.left() == false) {
-            available++;
-        }
-        if (this.right() == false) {
-            available++;
-        }
-        if (this.bottom() == false) {
-            available++;
-        }
+    },
+    box9: {
+        isFull: false,
+        top: function() { return lines["line17"]; },
+        left: function() { return lines["line20"]; },
+        right: function() { return lines["line21"]; },
+        bottom: function() { return lines["line24"]; },
+        lines_available: function() {
+            var available = 0;
+            if (this.top() == false) {
+                available++;
+            }
+            if (this.left() == false) {
+                available++;
+            }
+            if (this.right() == false) {
+                available++;
+            }
+            if (this.bottom() == false) {
+                available++;
+            }
 
-        return available;
-    }
-};
-
-var box6 = {
-    isFull: false,
-    top: function() { return lines["line10"]; },
-    left: function() { return lines["line13"]; },
-    right: function() { return lines["line14"]; },
-    bottom: function() { return lines["line17"]; },
-    lines_available: function() {
-        var available = 0;
-        if (this.top() == false) {
-            available++;
+            return available;
         }
-        if (this.left() == false) {
-            available++;
-        }
-        if (this.right() == false) {
-            available++;
-        }
-        if (this.bottom() == false) {
-            available++;
-        }
-
-        return available;
-    }
-};
-
-var box7 = {
-    isFull: false,
-    top: function() { return lines["line15"]; },
-    left: function() { return lines["line18"]; },
-    right: function() { return lines["line19"]; },
-    bottom: function() { return lines["line22"]; },
-    lines_available: function() {
-        var available = 0;
-        if (this.top() == false) {
-            available++;
-        }
-        if (this.left() == false) {
-            available++;
-        }
-        if (this.right() == false) {
-            available++;
-        }
-        if (this.bottom() == false) {
-            available++;
-        }
-
-        return available;
-    }
-};
-
-var box8 = {
-    isFull: false,
-    top: function() { return lines["line16"]; },
-    left: function() { return lines["line19"]; },
-    right: function() { return lines["line20"]; },
-    bottom: function() { return lines["line23"]; },
-    lines_available: function() {
-        var available = 0;
-        if (this.top() == false) {
-            available++;
-        }
-        if (this.left() == false) {
-            available++;
-        }
-        if (this.right() == false) {
-            available++;
-        }
-        if (this.bottom() == false) {
-            available++;
-        }
-
-        return available;
-    }
-};
-
-var box9 = {
-    isFull: false,
-    top: function() { return lines["line17"]; },
-    left: function() { return lines["line20"]; },
-    right: function() { return lines["line21"]; },
-    bottom: function() { return lines["line24"]; },
-    lines_available: function() {
-        var available = 0;
-        if (this.top() == false) {
-            available++;
-        }
-        if (this.left() == false) {
-            available++;
-        }
-        if (this.right() == false) {
-            available++;
-        }
-        if (this.bottom() == false) {
-            available++;
-        }
-
-        return available;
     }
 };
 
@@ -445,121 +439,59 @@ function filledBox(tmpLines1, isMaximizing) {
     var completedBox = false;
     var tmpLines = JSON.parse(JSON.stringify(tmpLines1));
 
-    if (tmpLines.line1 == true && tmpLines.line4 == true && tmpLines.line5 == true && tmpLines.line8 == true && tmpLines.box1 == "nobody") {
-        completedBox = true;
-        if (isMaximizing == true) {
-            tmpLines.box1 = "player2";
+    var i;
+    for (i = 1; i < 4; i++) {
+        var up = "line" + i;
+        var left = "line" + (i + 3);
+        var right = "line" + (i + 4);
+        var bottom = "line" + (i + 7);
+        var box = "box" + i;
+
+        if (tmpLines[up] == true && tmpLines[left] == true && tmpLines[right] == true && tmpLines[bottom] == true && tmpLines[box] == "nobody") {
+            completedBox = true;
+            if (isMaximizing == true) {
+                tmpLines[box] = "player2";
+            }
+            else {
+                tmpLines[box] = "player1";
+            }
         }
-        else {
-            tmpLines.box1 = "player1";
-        }
-    }
-    else if (tmpLines.line1 == false || tmpLines.line4 == false || tmpLines.line5 == false || tmpLines.line8 == false) {
-        tmpLines.box1 = "nobody";
     }
 
-    if (tmpLines.line2 == true && tmpLines.line5 == true && tmpLines.line6 == true && tmpLines.line9 == true && tmpLines.box2 == "nobody") {
-        completedBox = true;
-        if (isMaximizing == true) {
-            tmpLines.box2 = "player2";
+    for (i = 4; i < 7; i++) {
+        var up = "line" + (i + 4);
+        var left = "line" + (i + 7);
+        var right = "line" + (i + 8);
+        var bottom = "line" + (i + 11);
+        var box = "box" + i;
+
+        if (tmpLines[up] == true && tmpLines[left] == true && tmpLines[right] == true && tmpLines[bottom] == true && tmpLines[box] == "nobody") {
+            completedBox = true;
+            if (isMaximizing == true) {
+                tmpLines[box] = "player2";
+            }
+            else {
+                tmpLines[box] = "player1";
+            }
         }
-        else {
-            tmpLines.box2 = "player1";
-        }
-    }
-    else if (tmpLines.line2 == false || tmpLines.line5 == false || tmpLines.line6 == false || tmpLines.line9 == false) {
-        tmpLines.box2 = "nobody";
     }
 
-    if (tmpLines.line3 == true && tmpLines.line6 == true && tmpLines.line7 == true && tmpLines.line10 == true && tmpLines.box3 == "nobody") {
-        completedBox = true;
-        if (isMaximizing == true) {
-            tmpLines.box3 = "player2";
-        }
-        else {
-            tmpLines.box3 = "player1";
-        }
-    }
-    else if (tmpLines.line3 == false || tmpLines.line6 == false || tmpLines.line7 == false || tmpLines.line10 == false) {
-        tmpLines.box3 = "nobody";
-    }
+    for (i = 7; i < 10; i++) {
+        var up = "line" + (i + 8);
+        var left = "line" + (i + 11);
+        var right = "line" + (i + 12);
+        var bottom = "line" + (i + 15);
+        var box = "box" + i;
 
-    if (tmpLines.line8 == true && tmpLines.line11 == true && tmpLines.line12 == true && tmpLines.line15 == true && tmpLines.box4 == "nobody") {
-        completedBox = true;
-        if (isMaximizing == true) {
-            tmpLines.box4 = "player2";
+        if (tmpLines[up] == true && tmpLines[left] == true && tmpLines[right] == true && tmpLines[bottom] == true && tmpLines[box] == "nobody") {
+            completedBox = true;
+            if (isMaximizing == true) {
+                tmpLines[box] = "player2";
+            }
+            else {
+                tmpLines[box] = "player1";
+            }
         }
-        else {
-            tmpLines.box4 = "player1";
-        }
-    }
-    else if (tmpLines.line8 == false || tmpLines.line11 == false || tmpLines.line12 == false || tmpLines.line15 == false) {
-        tmpLines.box4 = "nobody";
-    }
-
-    if (tmpLines.line9 == true && tmpLines.line12 == true && tmpLines.line13 == true && tmpLines.line16 == true && tmpLines.box5 == "nobody") {
-        completedBox = true;
-        if (isMaximizing == true) {
-            tmpLines.box5 = "player2";
-        }
-        else {
-            tmpLines.box5 = "player1";
-        }
-    }
-    else if (tmpLines.line9 == false || tmpLines.line12 == false || tmpLines.line13 == false || tmpLines.line16 == false) {
-        tmpLines.box5 = "nobody";
-    }
-
-    if (tmpLines.line10 == true && tmpLines.line13 == true && tmpLines.line14 == true && tmpLines.line17 == true && tmpLines.box6 == "nobody") {
-        completedBox = true;
-        if (isMaximizing == true) {
-            tmpLines.box6 = "player2";
-        }
-        else {
-            tmpLines.box6 = "player1";
-        }
-    }
-    else if (tmpLines.line10 == false || tmpLines.line13 == false || tmpLines.line14 == false || tmpLines.line17 == false) {
-        tmpLines.box6 = "nobody";
-    }
-
-    if (tmpLines.line15 == true && tmpLines.line18 == true && tmpLines.line19 == true && tmpLines.line22 == true && tmpLines.box7 == "nobody") {
-        completedBox = true;
-        if (isMaximizing == true) {
-            tmpLines.box7 = "player2";
-        }
-        else {
-            tmpLines.box7 = "player1";
-        }
-    }
-    else if (tmpLines.line15 == false || tmpLines.line18 == false || tmpLines.line19 == false || tmpLines.line22 == false) {
-        tmpLines.box7 = "nobody";
-    }
-
-    if (tmpLines.line16 == true && tmpLines.line19 == true && tmpLines.line20 == true && tmpLines.line23 == true && tmpLines.box8 == "nobody") {
-        completedBox = true;
-        if (isMaximizing == true) {
-            tmpLines.box8 = "player2";
-        }
-        else {
-            tmpLines.box8 = "player1";
-        }
-    }
-    else if (tmpLines.line16 == false || tmpLines.line19 == false || tmpLines.line20 == false || tmpLines.line23 == false) {
-        tmpLines.box8 = "nobody";
-    }
-
-    if (tmpLines.line17 == true && tmpLines.line20 == true && tmpLines.line21 == true && tmpLines.line24 == true && tmpLines.box9 == "nobody") {
-        completedBox = true;
-        if (isMaximizing == true) {
-            tmpLines.box9 = "player2";
-        }
-        else {
-            tmpLines.box9 = "player1";
-        }
-    }
-    else if (tmpLines.line17 == false || tmpLines.line20 == false || tmpLines.line21 == false || tmpLines.line24 == false) {
-        tmpLines.box9 = "nobody";
     }
 
     var data = [completedBox, tmpLines];
@@ -570,199 +502,41 @@ function filledBox(tmpLines1, isMaximizing) {
 function scoreLines(tmpLines) {
     var score = 0;
 
-    if (tmpLines.box1 == "player1") {
-        score--;
-    }
-    else if (tmpLines.box1 == "player2") {
-        score++;
-    }
-
-    if (tmpLines.box2 == "player1") {
-        score--;
-    }
-    else if (tmpLines.box2 == "player2") {
-        score++;
-    }
-
-    if (tmpLines.box3 == "player1") {
-        score--;
-    }
-    else if (tmpLines.box3 == "player2") {
-        score++;
-    }
-
-    if (tmpLines.box4 == "player1") {
-        score--;
-    }
-    else if (tmpLines.box4 == "player2") {
-        score++;
-    }
-
-    if (tmpLines.box5 == "player1") {
-        score--;
-    }
-    else if (tmpLines.box5 == "player2") {
-        score++;
-    }
-
-    if (tmpLines.box6 == "player1") {
-        score--;
-    }
-    else if (tmpLines.box6 == "player2") {
-        score++;
-    }
-
-    if (tmpLines.box7 == "player1") {
-        score--;
-    }
-    else if (tmpLines.box7 == "player2") {
-        score++;
-    }
-
-    if (tmpLines.box8 == "player1") {
-        score--;
-    }
-    else if (tmpLines.box8 == "player2") {
-        score++;
-    }
-
-    if (tmpLines.box9 == "player1") {
-        score--;
-    }
-    else if (tmpLines.box9 == "player2") {
-        score++;
+    var i;
+    for (i = 1; i < 10; i++) {
+        var boxName = "box" + i;
+        if (tmpLines[boxName] == "player1") {
+            score--;
+        }
+        else if (tmpLines[boxName] == "player2") {
+            score++;
+        }
     }
 
     return score;
 }
 
 function boxFull() {
-    var box1Element = document.getElementById("box1");
-    var box2Element = document.getElementById("box2");
-    var box3Element = document.getElementById("box3");
-    var box4Element = document.getElementById("box4");
-    var box5Element = document.getElementById("box5");
-    var box6Element = document.getElementById("box6");
-    var box7Element = document.getElementById("box7");
-    var box8Element = document.getElementById("box8");
-    var box9Element = document.getElementById("box9");
     var completedBox = false;
 
-    if (box1.lines_available() == 0 && box1.isFull == false) {
-        lines.box1 = turn;
-        box1.isFull = true;
-        completedBox = true;
-        if (turn == "player1") {
-            player1Score++;
-            box1Element.style.fill = "DeepSkyBlue";
-        }
-        else {
-            player2Score++;
-            box1Element.style.fill = "IndianRed";
-        }
-    }
-    if (box2.lines_available() == 0 && box2.isFull == false) {
-        lines.box2 = turn;
-        box2.isFull = true;
-        completedBox = true;
-        if (turn == "player1") {
-            player1Score++;
-            box2Element.style.fill = "DeepSkyBlue";
-        }
-        else {
-            player2Score++;
-            box2Element.style.fill = "IndianRed";
-        }
-    }
-    if (box3.lines_available() == 0 && box3.isFull == false) {
-        lines.box3 = turn;
-        box3.isFull = true;
-        completedBox = true;
-        if (turn == "player1") {
-            player1Score++;
-            box3Element.style.fill = "DeepSkyBlue";
-        }
-        else {
-            player2Score++;
-            box3Element.style.fill = "IndianRed";
-        }
-    }
-    if (box4.lines_available() == 0 && box4.isFull == false) {
-        lines.box4 = turn;
-        box4.isFull = true;
-        completedBox = true;
-        if (turn == "player1") {
-            player1Score++;
-            box4Element.style.fill = "DeepSkyBlue";
-        }
-        else {
-            player2Score++;
-            box4Element.style.fill = "IndianRed";
-        }
-    }
-    if (box5.lines_available() == 0 && box5.isFull == false) {
-        lines.box5 = turn;
-        box5.isFull = true;
-        completedBox = true;
-        if (turn == "player1") {
-            player1Score++;
-            box5Element.style.fill = "DeepSkyBlue";
-        }
-        else {
-            player2Score++;
-            box5Element.style.fill = "IndianRed";
-        }
-    }
-    if (box6.lines_available() == 0 && box6.isFull == false) {
-        lines.box6 = turn;
-        box6.isFull = true;
-        completedBox = true;
-        if (turn == "player1") {
-            player1Score++;
-            box6Element.style.fill = "DeepSkyBlue";
-        }
-        else {
-            player2Score++;
-            box6Element.style.fill = "IndianRed";
-        }
-    }
-    if (box7.lines_available() == 0 && box7.isFull == false) {
-        lines.box7 = turn;
-        box7.isFull = true;
-        completedBox = true;
-        if (turn == "player1") {
-            player1Score++;
-            box7Element.style.fill = "DeepSkyBlue";
-        }
-        else {
-            player2Score++;
-            box7Element.style.fill = "IndianRed";
-        }
-    }
-    if (box8.lines_available() == 0 && box8.isFull == false) {
-        lines.box8 = turn;
-        box8.isFull = true;
-        completedBox = true;
-        if (turn == "player1") {
-            player1Score++;
-            box8Element.style.fill = "DeepSkyBlue";
-        }
-        else {
-            player2Score++;
-            box8Element.style.fill = "IndianRed";
-        }
-    }
-    if (box9.lines_available() == 0 && box9.isFull == false) {
-        lines.box9 = turn;
-        box9.isFull = true;
-        completedBox = true;
-        if (turn == "player1") {
-            player1Score++;
-            box9Element.style.fill = "DeepSkyBlue";
-        }
-        else {
-            player2Score++;
-            box9Element.style.fill = "IndianRed";
+    var box = new Array(9);
+    var i;
+    for (i = 0; i < 9; i++) {
+        var boxName = "box" + (i + 1);
+        box[i] = document.getElementById(boxName);
+
+        if (boxes[boxName].lines_available() == 0 && boxes[boxName].isFull == false) {
+            lines[boxName] = turn;
+            boxes[boxName].isFull = true;
+            completedBox = true;
+            if (turn == "player1") {
+                player1Score++;
+                box[i].style.fill = "DeepSkyBlue";
+            }
+            else {
+                player2Score++;
+                box[i].style.fill = "IndianRed";
+            }
         }
     }
 
@@ -797,15 +571,10 @@ function reset() {
         document.getElementsByTagName("line")[i].style.stroke = "white";
     }
 
-    document.getElementById("box1").style.fill = "white";
-    document.getElementById("box2").style.fill = "white";
-    document.getElementById("box3").style.fill = "white";
-    document.getElementById("box4").style.fill = "white";
-    document.getElementById("box5").style.fill = "white";
-    document.getElementById("box6").style.fill = "white";
-    document.getElementById("box7").style.fill = "white";
-    document.getElementById("box8").style.fill = "white";
-    document.getElementById("box9").style.fill = "white";
+    for (i = 1; i < 10; i++) {
+        var boxName = "box" + i;
+        document.getElementById(boxName).style.fill = "white";
+    }
 
     lines["line1"] = false;
     lines["line2"] = false;
@@ -842,15 +611,15 @@ function reset() {
     lines.box8 = "nobody";
     lines.box9 = "nobody";
 
-    box1.isFull = false;
-    box2.isFull = false;
-    box3.isFull = false;
-    box4.isFull = false;
-    box5.isFull = false;
-    box6.isFull = false;
-    box7.isFull = false;
-    box8.isFull = false;
-    box9.isFull = false;
+    boxes.box1.isFull = false;
+    boxes.box2.isFull = false;
+    boxes.box3.isFull = false;
+    boxes.box4.isFull = false;
+    boxes.box5.isFull = false;
+    boxes.box6.isFull = false;
+    boxes.box7.isFull = false;
+    boxes.box8.isFull = false;
+    boxes.box9.isFull = false;
 
     if (firstTurn == "player1") {
         turn = "player2";

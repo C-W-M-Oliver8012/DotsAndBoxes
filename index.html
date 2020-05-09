@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="style.css">
+	<title>Dots and Boxes</title>
+</head>
+<body>
+    <h1>Dots and Boxes</h1>
+    <p>By Caden Miller</p>
+
+    <input id="reset-button" type="button" value="Reset" onclick="reset()" />
+    <br>
+    <p id="player1-score">Player1: 0</p>
+    <p id="player2-score">Player2: 0</p>
+
+    <svg width="800" height="800">
+        <line id="line1" x1="100" y1="100" x2="300" y2="100" onmouseover="highlight(this)" onmouseout="unhighlight(this)" onclick="lineSelect(this)" />
+        <line id="line2" x1="300" y1="100" x2="500" y2="100" onmouseover="highlight(this)" onmouseout="unhighlight(this)" onclick="lineSelect(this)" />
+        <line id="line3" x1="500" y1="100" x2="700" y2="100" onmouseover="highlight(this)" onmouseout="unhighlight(this)" onclick="lineSelect(this)" />
+
+        <line id="line4" x1="100" y1="100" x2="100" y2="300" onmouseover="highlight(this)" onmouseout="unhighlight(this)" onclick="lineSelect(this)" />
+        <line id="line5" x1="300" y1="100" x2="300" y2="300" onmouseover="highlight(this)" onmouseout="unhighlight(this)" onclick="lineSelect(this)" />
+        <line id="line6" x1="500" y1="100" x2="500" y2="300" onmouseover="highlight(this)" onmouseout="unhighlight(this)" onclick="lineSelect(this)" />
+        <line id="line7" x1="700" y1="100" x2="700" y2="300" onmouseover="highlight(this)" onmouseout="unhighlight(this)" onclick="lineSelect(this)" />
+
+        <line id="line8" x1="100" y1="300" x2="300" y2="300" onmouseover="highlight(this)" onmouseout="unhighlight(this)" onclick="lineSelect(this)" />
+        <line id="line9" x1="300" y1="300" x2="500" y2="300" onmouseover="highlight(this)" onmouseout="unhighlight(this)" onclick="lineSelect(this)" />
+        <line id="line10" x1="500" y1="300" x2="700" y2="300" onmouseover="highlight(this)" onmouseout="unhighlight(this)" onclick="lineSelect(this)" />
+
+        <line id="line11" x1="100" y1="300" x2="100" y2="500" onmouseover="highlight(this)" onmouseout="unhighlight(this)" onclick="lineSelect(this)" />
+        <line id="line12" x1="300" y1="300" x2="300" y2="500" onmouseover="highlight(this)" onmouseout="unhighlight(this)" onclick="lineSelect(this)" />
+        <line id="line13" x1="500" y1="300" x2="500" y2="500" onmouseover="highlight(this)" onmouseout="unhighlight(this)" onclick="lineSelect(this)" />
+        <line id="line14" x1="700" y1="300" x2="700" y2="500" onmouseover="highlight(this)" onmouseout="unhighlight(this)" onclick="lineSelect(this)" />
+
+        <line id="line15" x1="100" y1="500" x2="300" y2="500" onmouseover="highlight(this)" onmouseout="unhighlight(this)" onclick="lineSelect(this)" />
+        <line id="line16" x1="300" y1="500" x2="500" y2="500" onmouseover="highlight(this)" onmouseout="unhighlight(this)" onclick="lineSelect(this)" />
+        <line id="line17" x1="500" y1="500" x2="700" y2="500" onmouseover="highlight(this)" onmouseout="unhighlight(this)" onclick="lineSelect(this)" />
+
+        <line id="line18" x1="100" y1="500" x2="100" y2="700" onmouseover="highlight(this)" onmouseout="unhighlight(this)" onclick="lineSelect(this)" />
+        <line id="line19" x1="300" y1="500" x2="300" y2="700" onmouseover="highlight(this)" onmouseout="unhighlight(this)" onclick="lineSelect(this)" />
+        <line id="line20" x1="500" y1="500" x2="500" y2="700" onmouseover="highlight(this)" onmouseout="unhighlight(this)" onclick="lineSelect(this)" />
+        <line id="line21" x1="700" y1="500" x2="700" y2="700" onmouseover="highlight(this)" onmouseout="unhighlight(this)" onclick="lineSelect(this)" />
+
+        <line id="line22" x1="100" y1="700" x2="300" y2="700" onmouseover="highlight(this)" onmouseout="unhighlight(this)" onclick="lineSelect(this)" />
+        <line id="line23" x1="300" y1="700" x2="500" y2="700" onmouseover="highlight(this)" onmouseout="unhighlight(this)" onclick="lineSelect(this)" />
+        <line id="line24" x1="500" y1="700" x2="700" y2="700" onmouseover="highlight(this)" onmouseout="unhighlight(this)" onclick="lineSelect(this)" />
+
+        <circle cx="100" cy="100" r="20" fill="black" />
+        <circle cx="300" cy="100" r="20" fill="black" />
+        <circle cx="500" cy="100" r="20" fill="black" />
+        <circle cx="700" cy="100" r="20" fill="black" />
+
+        <circle cx="100" cy="300" r="20" fill="black" />
+        <circle cx="300" cy="300" r="20" fill="black" />
+        <circle cx="500" cy="300" r="20" fill="black" />
+        <circle cx="700" cy="300" r="20" fill="black" />
+
+        <circle cx="100" cy="500" r="20" fill="black" />
+        <circle cx="300" cy="500" r="20" fill="black" />
+        <circle cx="500" cy="500" r="20" fill="black" />
+        <circle cx="700" cy="500" r="20" fill="black" />
+
+        <circle cx="100" cy="700" r="20" fill="black" />
+        <circle cx="300" cy="700" r="20" fill="black" />
+        <circle cx="500" cy="700" r="20" fill="black" />
+        <circle cx="700" cy="700" r="20" fill="black" />
+
+        <circle class="boxes" id="box1" cx="200" cy="200" r="60" />
+        <circle class="boxes" id="box2" cx="400" cy="200" r="60" />
+        <circle class="boxes" id="box3" cx="600" cy="200" r="60" />
+        <circle class="boxes" id="box4" cx="200" cy="400" r="60" />
+        <circle class="boxes" id="box5" cx="400" cy="400" r="60" />
+        <circle class="boxes" id="box6" cx="600" cy="400" r="60" />
+        <circle class="boxes" id="box7" cx="200" cy="600" r="60" />
+        <circle class="boxes" id="box8" cx="400" cy="600" r="60" />
+        <circle class="boxes" id="box9" cx="600" cy="600" r="60" />
+    </svg>
+
+    <h2>About the game</h2>
+    <p>Dots and Boxes is a game where players connect lines in order to form boxes. The player to successfully complete a box "wins" that box and score a point. Once a point has been scored,
+        that player is allowed to go again.<p>
+
+    <h2>How to AI works</h2>
+    <p>The AI uses the minimax algorithm to search the game tree in order to find the best move. Alpha beta pruning is used to to disregard game trees that will not yield good results, thus
+        speeding up the game tree search.</p>
+
+    <h2>Future improvements</h2>
+    <p>Everything seems to work exactly how I would expect it to, however, there is no doubt in my mind that there are bugs in my code. Much work needs to be done with the data structures in order
+        to create a scalable version of this game. The code is is currently undocumented and the result of a day and a half long code sprint.</p>
+
+    <script src="game.js"></script>
+</body>
+</html>

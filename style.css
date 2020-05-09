@@ -12,11 +12,13 @@ body
 #player1-score
 {
     color: DeepSkyBlue;
+    font-size: 1.5em;
 }
 
 #player2-score
 {
     color: IndianRed;
+    font-size: 1.5em;
 }
 
 line

@@ -28,6 +28,22 @@ var lines = {
     line22: false,
     line23: false,
     line24: false,
+    line25: false,
+    line26: false,
+    line27: false,
+    line28: false,
+    line29: false,
+    line30: false,
+    line31: false,
+    line32: false,
+    line33: false,
+    line34: false,
+    line35: false,
+    line36: false,
+    line37: false,
+    line38: false,
+    line39: false,
+    line40: false,
     box1: "nobody",
     box2: "nobody",
     box3: "nobody",
@@ -37,15 +53,22 @@ var lines = {
     box7: "nobody",
     box8: "nobody",
     box9: "nobody",
+    box10: "nobody",
+    box11: "nobody",
+    box12: "nobody",
+    box13: "nobody",
+    box14: "nobody",
+    box15: "nobody",
+    box16: "nobody",
 };
 
 var boxes = {
     box1: {
         isFull: false,
         top: function() { return lines["line1"]; },
-        left: function() { return lines["line4"]; },
-        right: function() { return lines["line5"]; },
-        bottom: function() { return lines["line8"]; },
+        left: function() { return lines["line5"]; },
+        right: function() { return lines["line6"]; },
+        bottom: function() { return lines["line10"]; },
         lines_available: function() {
             var available = 0;
             if (this.top() == false) {
@@ -67,9 +90,9 @@ var boxes = {
     box2: {
         isFull: false,
         top: function() { return lines["line2"]; },
-        left: function() { return lines["line5"]; },
-        right: function() { return lines["line6"]; },
-        bottom: function() { return lines["line9"]; },
+        left: function() { return lines["line6"]; },
+        right: function() { return lines["line7"]; },
+        bottom: function() { return lines["line11"]; },
         lines_available: function() {
             var available = 0;
             if (this.top() == false) {
@@ -91,9 +114,9 @@ var boxes = {
     box3: {
         isFull: false,
         top: function() { return lines["line3"]; },
-        left: function() { return lines["line6"]; },
-        right: function() { return lines["line7"]; },
-        bottom: function() { return lines["line10"]; },
+        left: function() { return lines["line7"]; },
+        right: function() { return lines["line8"]; },
+        bottom: function() { return lines["line12"]; },
         lines_available: function() {
             var available = 0;
             if (this.top() == false) {
@@ -114,10 +137,10 @@ var boxes = {
     },
     box4: {
         isFull: false,
-        top: function() { return lines["line8"]; },
-        left: function() { return lines["line11"]; },
-        right: function() { return lines["line12"]; },
-        bottom: function() { return lines["line15"]; },
+        top: function() { return lines["line4"]; },
+        left: function() { return lines["line8"]; },
+        right: function() { return lines["line9"]; },
+        bottom: function() { return lines["line13"]; },
         lines_available: function() {
             var available = 0;
             if (this.top() == false) {
@@ -138,10 +161,10 @@ var boxes = {
     },
     box5: {
         isFull: false,
-        top: function() { return lines["line9"]; },
-        left: function() { return lines["line12"]; },
-        right: function() { return lines["line13"]; },
-        bottom: function() { return lines["line16"]; },
+        top: function() { return lines["line10"]; },
+        left: function() { return lines["line14"]; },
+        right: function() { return lines["line15"]; },
+        bottom: function() { return lines["line19"]; },
         lines_available: function() {
             var available = 0;
             if (this.top() == false) {
@@ -162,10 +185,10 @@ var boxes = {
     },
     box6: {
         isFull: false,
-        top: function() { return lines["line10"]; },
-        left: function() { return lines["line13"]; },
-        right: function() { return lines["line14"]; },
-        bottom: function() { return lines["line17"]; },
+        top: function() { return lines["line11"]; },
+        left: function() { return lines["line15"]; },
+        right: function() { return lines["line16"]; },
+        bottom: function() { return lines["line20"]; },
         lines_available: function() {
             var available = 0;
             if (this.top() == false) {
@@ -186,10 +209,10 @@ var boxes = {
     },
     box7: {
         isFull: false,
-        top: function() { return lines["line15"]; },
-        left: function() { return lines["line18"]; },
-        right: function() { return lines["line19"]; },
-        bottom: function() { return lines["line22"]; },
+        top: function() { return lines["line12"]; },
+        left: function() { return lines["line16"]; },
+        right: function() { return lines["line17"]; },
+        bottom: function() { return lines["line21"]; },
         lines_available: function() {
             var available = 0;
             if (this.top() == false) {
@@ -210,10 +233,10 @@ var boxes = {
     },
     box8: {
         isFull: false,
-        top: function() { return lines["line16"]; },
-        left: function() { return lines["line19"]; },
-        right: function() { return lines["line20"]; },
-        bottom: function() { return lines["line23"]; },
+        top: function() { return lines["line13"]; },
+        left: function() { return lines["line17"]; },
+        right: function() { return lines["line18"]; },
+        bottom: function() { return lines["line22"]; },
         lines_available: function() {
             var available = 0;
             if (this.top() == false) {
@@ -234,10 +257,178 @@ var boxes = {
     },
     box9: {
         isFull: false,
-        top: function() { return lines["line17"]; },
-        left: function() { return lines["line20"]; },
-        right: function() { return lines["line21"]; },
-        bottom: function() { return lines["line24"]; },
+        top: function() { return lines["line19"]; },
+        left: function() { return lines["line23"]; },
+        right: function() { return lines["line24"]; },
+        bottom: function() { return lines["line28"]; },
+        lines_available: function() {
+            var available = 0;
+            if (this.top() == false) {
+                available++;
+            }
+            if (this.left() == false) {
+                available++;
+            }
+            if (this.right() == false) {
+                available++;
+            }
+            if (this.bottom() == false) {
+                available++;
+            }
+
+            return available;
+        }
+    },
+    box10: {
+        isFull: false,
+        top: function() { return lines["line20"]; },
+        left: function() { return lines["line24"]; },
+        right: function() { return lines["line25"]; },
+        bottom: function() { return lines["line29"]; },
+        lines_available: function() {
+            var available = 0;
+            if (this.top() == false) {
+                available++;
+            }
+            if (this.left() == false) {
+                available++;
+            }
+            if (this.right() == false) {
+                available++;
+            }
+            if (this.bottom() == false) {
+                available++;
+            }
+
+            return available;
+        }
+    },
+    box11: {
+        isFull: false,
+        top: function() { return lines["line21"]; },
+        left: function() { return lines["line25"]; },
+        right: function() { return lines["line26"]; },
+        bottom: function() { return lines["line30"]; },
+        lines_available: function() {
+            var available = 0;
+            if (this.top() == false) {
+                available++;
+            }
+            if (this.left() == false) {
+                available++;
+            }
+            if (this.right() == false) {
+                available++;
+            }
+            if (this.bottom() == false) {
+                available++;
+            }
+
+            return available;
+        }
+    },
+    box12: {
+        isFull: false,
+        top: function() { return lines["line22"]; },
+        left: function() { return lines["line26"]; },
+        right: function() { return lines["line27"]; },
+        bottom: function() { return lines["line31"]; },
+        lines_available: function() {
+            var available = 0;
+            if (this.top() == false) {
+                available++;
+            }
+            if (this.left() == false) {
+                available++;
+            }
+            if (this.right() == false) {
+                available++;
+            }
+            if (this.bottom() == false) {
+                available++;
+            }
+
+            return available;
+        }
+    },
+    box13: {
+        isFull: false,
+        top: function() { return lines["line28"]; },
+        left: function() { return lines["line32"]; },
+        right: function() { return lines["line33"]; },
+        bottom: function() { return lines["line37"]; },
+        lines_available: function() {
+            var available = 0;
+            if (this.top() == false) {
+                available++;
+            }
+            if (this.left() == false) {
+                available++;
+            }
+            if (this.right() == false) {
+                available++;
+            }
+            if (this.bottom() == false) {
+                available++;
+            }
+
+            return available;
+        }
+    },
+    box14: {
+        isFull: false,
+        top: function() { return lines["line29"]; },
+        left: function() { return lines["line33"]; },
+        right: function() { return lines["line34"]; },
+        bottom: function() { return lines["line38"]; },
+        lines_available: function() {
+            var available = 0;
+            if (this.top() == false) {
+                available++;
+            }
+            if (this.left() == false) {
+                available++;
+            }
+            if (this.right() == false) {
+                available++;
+            }
+            if (this.bottom() == false) {
+                available++;
+            }
+
+            return available;
+        }
+    },
+    box15: {
+        isFull: false,
+        top: function() { return lines["line30"]; },
+        left: function() { return lines["line34"]; },
+        right: function() { return lines["line35"]; },
+        bottom: function() { return lines["line39"]; },
+        lines_available: function() {
+            var available = 0;
+            if (this.top() == false) {
+                available++;
+            }
+            if (this.left() == false) {
+                available++;
+            }
+            if (this.right() == false) {
+                available++;
+            }
+            if (this.bottom() == false) {
+                available++;
+            }
+
+            return available;
+        }
+    },
+    box16: {
+        isFull: false,
+        top: function() { return lines["line31"]; },
+        left: function() { return lines["line35"]; },
+        right: function() { return lines["line36"]; },
+        bottom: function() { return lines["line40"]; },
         lines_available: function() {
             var available = 0;
             if (this.top() == false) {
@@ -279,7 +470,7 @@ function noMoves(tmpLines) {
     noMovesLeft = true;
     var lineName;
     var i;
-    for (i = 1; i < 25; i++) {
+    for (i = 1; i < 41; i++) {
         lineName = "line" + i;
         if (tmpLines[lineName] == false) {
             noMovesLeft = false;
@@ -314,7 +505,7 @@ function movesLeft() {
     var moveCount = 0;
 
     var i;
-    for (i = 1; i < 25; i++) {
+    for (i = 1; i < 41; i++) {
         var name = "line" + i;
         if (lines[name] == false) {
             moveCount++;
@@ -331,7 +522,10 @@ function bestMove(tmpLines) {
     var i;
     var totalMovesLeft = movesLeft();
     var depth;
-    if (totalMovesLeft > 10) {
+    if (totalMovesLeft > 18) {
+        depth = 2;
+    }
+    else if (totalMovesLeft > 10 && totalMovesLeft < 19) {
         depth = 4;
     }
     else if (totalMovesLeft > 8 && totalMovesLeft < 11) {
@@ -340,7 +534,7 @@ function bestMove(tmpLines) {
     else {
         depth = 8;
     }
-    for (i = 1; i < 25; i++) {
+    for (i = 1; i < 41; i++) {
         var lineName = "line" + i;
         if (tmpLines[lineName] == false) {
             tmpLines[lineName] = true;
@@ -390,7 +584,7 @@ function minimax(tmpLines, depth, alpha, beta, isMaximizing) {
     if (isMaximizing == true) {
         var value = -1000;
         var i;
-        for (i = 1; i < 25; i++) {
+        for (i = 1; i < 41; i++) {
             var lineName = "line" + i;
             if (tmpLines[lineName] == false) {
                 tmpLines[lineName] = true;
@@ -413,7 +607,7 @@ function minimax(tmpLines, depth, alpha, beta, isMaximizing) {
     else {
         var value = 1000;
         var i;
-        for (i = 1; i < 25; i++) {
+        for (i = 1; i < 41; i++) {
             var lineName = "line" + i;
             if (tmpLines[lineName] == false) {
                 tmpLines[lineName] = true;
@@ -440,11 +634,11 @@ function filledBox(tmpLines1, isMaximizing) {
     var tmpLines = JSON.parse(JSON.stringify(tmpLines1));
 
     var i;
-    for (i = 1; i < 4; i++) {
+    for (i = 1; i < 5; i++) {
         var up = "line" + i;
-        var left = "line" + (i + 3);
-        var right = "line" + (i + 4);
-        var bottom = "line" + (i + 7);
+        var left = "line" + (i + 4);
+        var right = "line" + (i + 5);
+        var bottom = "line" + (i + 9);
         var box = "box" + i;
 
         if (tmpLines[up] == true && tmpLines[left] == true && tmpLines[right] == true && tmpLines[bottom] == true && tmpLines[box] == "nobody") {
@@ -458,11 +652,11 @@ function filledBox(tmpLines1, isMaximizing) {
         }
     }
 
-    for (i = 4; i < 7; i++) {
-        var up = "line" + (i + 4);
-        var left = "line" + (i + 7);
-        var right = "line" + (i + 8);
-        var bottom = "line" + (i + 11);
+    for (i = 5; i < 9; i++) {
+        var up = "line" + (i + 5);
+        var left = "line" + (i + 9);
+        var right = "line" + (i + 10);
+        var bottom = "line" + (i + 14);
         var box = "box" + i;
 
         if (tmpLines[up] == true && tmpLines[left] == true && tmpLines[right] == true && tmpLines[bottom] == true && tmpLines[box] == "nobody") {
@@ -476,11 +670,29 @@ function filledBox(tmpLines1, isMaximizing) {
         }
     }
 
-    for (i = 7; i < 10; i++) {
-        var up = "line" + (i + 8);
-        var left = "line" + (i + 11);
-        var right = "line" + (i + 12);
-        var bottom = "line" + (i + 15);
+    for (i = 9; i < 13; i++) {
+        var up = "line" + (i + 10);
+        var left = "line" + (i + 14);
+        var right = "line" + (i + 15);
+        var bottom = "line" + (i + 19);
+        var box = "box" + i;
+
+        if (tmpLines[up] == true && tmpLines[left] == true && tmpLines[right] == true && tmpLines[bottom] == true && tmpLines[box] == "nobody") {
+            completedBox = true;
+            if (isMaximizing == true) {
+                tmpLines[box] = "player2";
+            }
+            else {
+                tmpLines[box] = "player1";
+            }
+        }
+    }
+
+    for (i = 13; i < 17; i++) {
+        var up = "line" + (i + 15);
+        var left = "line" + (i + 19);
+        var right = "line" + (i + 20);
+        var bottom = "line" + (i + 24);
         var box = "box" + i;
 
         if (tmpLines[up] == true && tmpLines[left] == true && tmpLines[right] == true && tmpLines[bottom] == true && tmpLines[box] == "nobody") {
@@ -503,7 +715,7 @@ function scoreLines(tmpLines) {
     var score = 0;
 
     var i;
-    for (i = 1; i < 10; i++) {
+    for (i = 1; i < 17; i++) {
         var boxName = "box" + i;
         if (tmpLines[boxName] == "player1") {
             score--;
@@ -519,9 +731,9 @@ function scoreLines(tmpLines) {
 function boxFull() {
     var completedBox = false;
 
-    var box = new Array(9);
+    var box = new Array(16);
     var i;
-    for (i = 0; i < 9; i++) {
+    for (i = 0; i < 16; i++) {
         var boxName = "box" + (i + 1);
         box[i] = document.getElementById(boxName);
 
@@ -571,55 +783,21 @@ function reset() {
         document.getElementsByTagName("line")[i].style.stroke = "white";
     }
 
-    for (i = 1; i < 10; i++) {
+    for (i = 1; i < 17; i++) {
         var boxName = "box" + i;
         document.getElementById(boxName).style.fill = "white";
     }
 
-    lines["line1"] = false;
-    lines["line2"] = false;
-    lines["line3"] = false;
-    lines["line4"] = false;
-    lines["line5"] = false;
-    lines["line6"] = false;
-    lines["line7"] = false;
-    lines["line8"] = false;
-    lines["line9"] = false;
-    lines["line10"] = false;
-    lines["line11"] = false;
-    lines["line12"] = false;
-    lines["line13"] = false;
-    lines["line14"] = false;
-    lines["line15"] = false;
-    lines["line16"] = false;
-    lines["line17"] = false;
-    lines["line18"] = false;
-    lines["line19"] = false;
-    lines["line20"] = false;
-    lines["line21"] = false;
-    lines["line22"] = false;
-    lines["line23"] = false;
-    lines["line24"] = false;
+    for (i = 1; i < 41; i++) {
+        var lineName = "line" + i;
+        lines[lineName] = false;
+    }
 
-    lines.box1 = "nobody";
-    lines.box2 = "nobody";
-    lines.box3 = "nobody";
-    lines.box4 = "nobody";
-    lines.box5 = "nobody";
-    lines.box6 = "nobody";
-    lines.box7 = "nobody";
-    lines.box8 = "nobody";
-    lines.box9 = "nobody";
-
-    boxes.box1.isFull = false;
-    boxes.box2.isFull = false;
-    boxes.box3.isFull = false;
-    boxes.box4.isFull = false;
-    boxes.box5.isFull = false;
-    boxes.box6.isFull = false;
-    boxes.box7.isFull = false;
-    boxes.box8.isFull = false;
-    boxes.box9.isFull = false;
+    for (i = 1; i < 17; i++) {
+        var boxName = "box" + i;
+        lines[boxName] = "nobody";
+        boxes[boxName].isFull = false;
+    }
 
     if (firstTurn == "player1") {
         turn = "player2";

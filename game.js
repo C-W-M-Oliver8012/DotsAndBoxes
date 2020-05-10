@@ -94,22 +94,22 @@ var lines = {
 var boxes = {
     box1: {
         isFull: false,
-        top: function() { return lines["line1"]; },
-        left: function() { return lines["line6"]; },
-        right: function() { return lines["line7"]; },
-        bottom: function() { return lines["line12"]; },
-        lines_available: function() {
+        top: function(cLines) { return cLines["line1"]; },
+        left: function(cLines) { return cLines["line6"]; },
+        right: function(cLines) { return cLines["line7"]; },
+        bottom: function(cLines) { return cLines["line12"]; },
+        lines_available: function(cLines) {
             var available = 0;
-            if (this.top() == false) {
+            if (this.top(cLines) == false) {
                 available++;
             }
-            if (this.left() == false) {
+            if (this.left(cLines) == false) {
                 available++;
             }
-            if (this.right() == false) {
+            if (this.right(cLines) == false) {
                 available++;
             }
-            if (this.bottom() == false) {
+            if (this.bottom(cLines) == false) {
                 available++;
             }
 
@@ -118,22 +118,22 @@ var boxes = {
     },
     box2: {
         isFull: false,
-        top: function() { return lines["line2"]; },
-        left: function() { return lines["line7"]; },
-        right: function() { return lines["line8"]; },
-        bottom: function() { return lines["line13"]; },
-        lines_available: function() {
+        top: function(cLines) { return cLines["line2"]; },
+        left: function(cLines) { return cLines["line7"]; },
+        right: function(cLines) { return cLines["line8"]; },
+        bottom: function(cLines) { return cLines["line13"]; },
+        lines_available: function(cLines) {
             var available = 0;
-            if (this.top() == false) {
+            if (this.top(cLines) == false) {
                 available++;
             }
-            if (this.left() == false) {
+            if (this.left(cLines) == false) {
                 available++;
             }
-            if (this.right() == false) {
+            if (this.right(cLines) == false) {
                 available++;
             }
-            if (this.bottom() == false) {
+            if (this.bottom(cLines) == false) {
                 available++;
             }
 
@@ -142,22 +142,22 @@ var boxes = {
     },
     box3: {
         isFull: false,
-        top: function() { return lines["line3"]; },
-        left: function() { return lines["line8"]; },
-        right: function() { return lines["line9"]; },
-        bottom: function() { return lines["line14"]; },
-        lines_available: function() {
+        top: function(cLines) { return cLines["line3"]; },
+        left: function(cLines) { return cLines["line8"]; },
+        right: function(cLines) { return cLines["line9"]; },
+        bottom: function(cLines) { return cLines["line14"]; },
+        lines_available: function(cLines) {
             var available = 0;
-            if (this.top() == false) {
+            if (this.top(cLines) == false) {
                 available++;
             }
-            if (this.left() == false) {
+            if (this.left(cLines) == false) {
                 available++;
             }
-            if (this.right() == false) {
+            if (this.right(cLines) == false) {
                 available++;
             }
-            if (this.bottom() == false) {
+            if (this.bottom(cLines) == false) {
                 available++;
             }
 
@@ -166,22 +166,22 @@ var boxes = {
     },
     box4: {
         isFull: false,
-        top: function() { return lines["line4"]; },
-        left: function() { return lines["line9"]; },
-        right: function() { return lines["line10"]; },
-        bottom: function() { return lines["line15"]; },
-        lines_available: function() {
+        top: function(cLines) { return cLines["line4"]; },
+        left: function(cLines) { return cLines["line9"]; },
+        right: function(cLines) { return cLines["line10"]; },
+        bottom: function(cLines) { return cLines["line15"]; },
+        lines_available: function(cLines) {
             var available = 0;
-            if (this.top() == false) {
+            if (this.top(cLines) == false) {
                 available++;
             }
-            if (this.left() == false) {
+            if (this.left(cLines) == false) {
                 available++;
             }
-            if (this.right() == false) {
+            if (this.right(cLines) == false) {
                 available++;
             }
-            if (this.bottom() == false) {
+            if (this.bottom(cLines) == false) {
                 available++;
             }
 
@@ -190,22 +190,22 @@ var boxes = {
     },
     box5: {
         isFull: false,
-        top: function() { return lines["line5"]; },
-        left: function() { return lines["line10"]; },
-        right: function() { return lines["line11"]; },
-        bottom: function() { return lines["line16"]; },
-        lines_available: function() {
+        top: function(cLines) { return cLines["line5"]; },
+        left: function(cLines) { return cLines["line10"]; },
+        right: function(cLines) { return cLines["line11"]; },
+        bottom: function(cLines) { return cLines["line16"]; },
+        lines_available: function(cLines) {
             var available = 0;
-            if (this.top() == false) {
+            if (this.top(cLines) == false) {
                 available++;
             }
-            if (this.left() == false) {
+            if (this.left(cLines) == false) {
                 available++;
             }
-            if (this.right() == false) {
+            if (this.right(cLines) == false) {
                 available++;
             }
-            if (this.bottom() == false) {
+            if (this.bottom(cLines) == false) {
                 available++;
             }
 
@@ -214,22 +214,22 @@ var boxes = {
     },
     box6: {
         isFull: false,
-        top: function() { return lines["line12"]; },
-        left: function() { return lines["line17"]; },
-        right: function() { return lines["line18"]; },
-        bottom: function() { return lines["line23"]; },
-        lines_available: function() {
+        top: function(cLines) { return cLines["line12"]; },
+        left: function(cLines) { return cLines["line17"]; },
+        right: function(cLines) { return cLines["line18"]; },
+        bottom: function(cLines) { return cLines["line23"]; },
+        lines_available: function(cLines) {
             var available = 0;
-            if (this.top() == false) {
+            if (this.top(cLines) == false) {
                 available++;
             }
-            if (this.left() == false) {
+            if (this.left(cLines) == false) {
                 available++;
             }
-            if (this.right() == false) {
+            if (this.right(cLines) == false) {
                 available++;
             }
-            if (this.bottom() == false) {
+            if (this.bottom(cLines) == false) {
                 available++;
             }
 
@@ -238,22 +238,22 @@ var boxes = {
     },
     box7: {
         isFull: false,
-        top: function() { return lines["line13"]; },
-        left: function() { return lines["line18"]; },
-        right: function() { return lines["line19"]; },
-        bottom: function() { return lines["line24"]; },
-        lines_available: function() {
+        top: function(cLines) { return cLines["line13"]; },
+        left: function(cLines) { return cLines["line18"]; },
+        right: function(cLines) { return cLines["line19"]; },
+        bottom: function(cLines) { return cLines["line24"]; },
+        lines_available: function(cLines) {
             var available = 0;
-            if (this.top() == false) {
+            if (this.top(cLines) == false) {
                 available++;
             }
-            if (this.left() == false) {
+            if (this.left(cLines) == false) {
                 available++;
             }
-            if (this.right() == false) {
+            if (this.right(cLines) == false) {
                 available++;
             }
-            if (this.bottom() == false) {
+            if (this.bottom(cLines) == false) {
                 available++;
             }
 
@@ -262,22 +262,22 @@ var boxes = {
     },
     box8: {
         isFull: false,
-        top: function() { return lines["line14"]; },
-        left: function() { return lines["line19"]; },
-        right: function() { return lines["line20"]; },
-        bottom: function() { return lines["line25"]; },
-        lines_available: function() {
+        top: function(cLines) { return cLines["line14"]; },
+        left: function(cLines) { return cLines["line19"]; },
+        right: function(cLines) { return cLines["line20"]; },
+        bottom: function(cLines) { return cLines["line25"]; },
+        lines_available: function(cLines) {
             var available = 0;
-            if (this.top() == false) {
+            if (this.top(cLines) == false) {
                 available++;
             }
-            if (this.left() == false) {
+            if (this.left(cLines) == false) {
                 available++;
             }
-            if (this.right() == false) {
+            if (this.right(cLines) == false) {
                 available++;
             }
-            if (this.bottom() == false) {
+            if (this.bottom(cLines) == false) {
                 available++;
             }
 
@@ -286,22 +286,22 @@ var boxes = {
     },
     box9: {
         isFull: false,
-        top: function() { return lines["line15"]; },
-        left: function() { return lines["line20"]; },
-        right: function() { return lines["line21"]; },
-        bottom: function() { return lines["line26"]; },
-        lines_available: function() {
+        top: function(cLines) { return cLines["line15"]; },
+        left: function(cLines) { return cLines["line20"]; },
+        right: function(cLines) { return cLines["line21"]; },
+        bottom: function(cLines) { return cLines["line26"]; },
+        lines_available: function(cLines) {
             var available = 0;
-            if (this.top() == false) {
+            if (this.top(cLines) == false) {
                 available++;
             }
-            if (this.left() == false) {
+            if (this.left(cLines) == false) {
                 available++;
             }
-            if (this.right() == false) {
+            if (this.right(cLines) == false) {
                 available++;
             }
-            if (this.bottom() == false) {
+            if (this.bottom(cLines) == false) {
                 available++;
             }
 
@@ -310,22 +310,22 @@ var boxes = {
     },
     box10: {
         isFull: false,
-        top: function() { return lines["line16"]; },
-        left: function() { return lines["line21"]; },
-        right: function() { return lines["line22"]; },
-        bottom: function() { return lines["line27"]; },
-        lines_available: function() {
+        top: function(cLines) { return cLines["line16"]; },
+        left: function(cLines) { return cLines["line21"]; },
+        right: function(cLines) { return cLines["line22"]; },
+        bottom: function(cLines) { return cLines["line27"]; },
+        lines_available: function(cLines) {
             var available = 0;
-            if (this.top() == false) {
+            if (this.top(cLines) == false) {
                 available++;
             }
-            if (this.left() == false) {
+            if (this.left(cLines) == false) {
                 available++;
             }
-            if (this.right() == false) {
+            if (this.right(cLines) == false) {
                 available++;
             }
-            if (this.bottom() == false) {
+            if (this.bottom(cLines) == false) {
                 available++;
             }
 
@@ -334,22 +334,22 @@ var boxes = {
     },
     box11: {
         isFull: false,
-        top: function() { return lines["line23"]; },
-        left: function() { return lines["line28"]; },
-        right: function() { return lines["line29"]; },
-        bottom: function() { return lines["line34"]; },
-        lines_available: function() {
+        top: function(cLines) { return cLines["line23"]; },
+        left: function(cLines) { return cLines["line28"]; },
+        right: function(cLines) { return cLines["line29"]; },
+        bottom: function(cLines) { return cLines["line34"]; },
+        lines_available: function(cLines) {
             var available = 0;
-            if (this.top() == false) {
+            if (this.top(cLines) == false) {
                 available++;
             }
-            if (this.left() == false) {
+            if (this.left(cLines) == false) {
                 available++;
             }
-            if (this.right() == false) {
+            if (this.right(cLines) == false) {
                 available++;
             }
-            if (this.bottom() == false) {
+            if (this.bottom(cLines) == false) {
                 available++;
             }
 
@@ -358,22 +358,22 @@ var boxes = {
     },
     box12: {
         isFull: false,
-        top: function() { return lines["line24"]; },
-        left: function() { return lines["line29"]; },
-        right: function() { return lines["line30"]; },
-        bottom: function() { return lines["line35"]; },
-        lines_available: function() {
+        top: function(cLines) { return cLines["line24"]; },
+        left: function(cLines) { return cLines["line29"]; },
+        right: function(cLines) { return cLines["line30"]; },
+        bottom: function(cLines) { return cLines["line35"]; },
+        lines_available: function(cLines) {
             var available = 0;
-            if (this.top() == false) {
+            if (this.top(cLines) == false) {
                 available++;
             }
-            if (this.left() == false) {
+            if (this.left(cLines) == false) {
                 available++;
             }
-            if (this.right() == false) {
+            if (this.right(cLines) == false) {
                 available++;
             }
-            if (this.bottom() == false) {
+            if (this.bottom(cLines) == false) {
                 available++;
             }
 
@@ -382,22 +382,22 @@ var boxes = {
     },
     box13: {
         isFull: false,
-        top: function() { return lines["line25"]; },
-        left: function() { return lines["line30"]; },
-        right: function() { return lines["line31"]; },
-        bottom: function() { return lines["line36"]; },
-        lines_available: function() {
+        top: function(cLines) { return cLines["line25"]; },
+        left: function(cLines) { return cLines["line30"]; },
+        right: function(cLines) { return cLines["line31"]; },
+        bottom: function(cLines) { return cLines["line36"]; },
+        lines_available: function(cLines) {
             var available = 0;
-            if (this.top() == false) {
+            if (this.top(cLines) == false) {
                 available++;
             }
-            if (this.left() == false) {
+            if (this.left(cLines) == false) {
                 available++;
             }
-            if (this.right() == false) {
+            if (this.right(cLines) == false) {
                 available++;
             }
-            if (this.bottom() == false) {
+            if (this.bottom(cLines) == false) {
                 available++;
             }
 
@@ -406,22 +406,22 @@ var boxes = {
     },
     box14: {
         isFull: false,
-        top: function() { return lines["line26"]; },
-        left: function() { return lines["line31"]; },
-        right: function() { return lines["line32"]; },
-        bottom: function() { return lines["line37"]; },
-        lines_available: function() {
+        top: function(cLines) { return cLines["line26"]; },
+        left: function(cLines) { return cLines["line31"]; },
+        right: function(cLines) { return cLines["line32"]; },
+        bottom: function(cLines) { return cLines["line37"]; },
+        lines_available: function(cLines) {
             var available = 0;
-            if (this.top() == false) {
+            if (this.top(cLines) == false) {
                 available++;
             }
-            if (this.left() == false) {
+            if (this.left(cLines) == false) {
                 available++;
             }
-            if (this.right() == false) {
+            if (this.right(cLines) == false) {
                 available++;
             }
-            if (this.bottom() == false) {
+            if (this.bottom(cLines) == false) {
                 available++;
             }
 
@@ -430,22 +430,22 @@ var boxes = {
     },
     box15: {
         isFull: false,
-        top: function() { return lines["line27"]; },
-        left: function() { return lines["line32"]; },
-        right: function() { return lines["line33"]; },
-        bottom: function() { return lines["line38"]; },
-        lines_available: function() {
+        top: function(cLines) { return cLines["line27"]; },
+        left: function(cLines) { return cLines["line32"]; },
+        right: function(cLines) { return cLines["line33"]; },
+        bottom: function(cLines) { return cLines["line38"]; },
+        lines_available: function(cLines) {
             var available = 0;
-            if (this.top() == false) {
+            if (this.top(cLines) == false) {
                 available++;
             }
-            if (this.left() == false) {
+            if (this.left(cLines) == false) {
                 available++;
             }
-            if (this.right() == false) {
+            if (this.right(cLines) == false) {
                 available++;
             }
-            if (this.bottom() == false) {
+            if (this.bottom(cLines) == false) {
                 available++;
             }
 
@@ -454,22 +454,22 @@ var boxes = {
     },
     box16: {
         isFull: false,
-        top: function() { return lines["line34"]; },
-        left: function() { return lines["line39"]; },
-        right: function() { return lines["line40"]; },
-        bottom: function() { return lines["line45"]; },
-        lines_available: function() {
+        top: function(cLines) { return cLines["line34"]; },
+        left: function(cLines) { return cLines["line39"]; },
+        right: function(cLines) { return cLines["line40"]; },
+        bottom: function(cLines) { return cLines["line45"]; },
+        lines_available: function(cLines) {
             var available = 0;
-            if (this.top() == false) {
+            if (this.top(cLines) == false) {
                 available++;
             }
-            if (this.left() == false) {
+            if (this.left(cLines) == false) {
                 available++;
             }
-            if (this.right() == false) {
+            if (this.right(cLines) == false) {
                 available++;
             }
-            if (this.bottom() == false) {
+            if (this.bottom(cLines) == false) {
                 available++;
             }
 
@@ -478,22 +478,22 @@ var boxes = {
     },
     box17: {
         isFull: false,
-        top: function() { return lines["line35"]; },
-        left: function() { return lines["line40"]; },
-        right: function() { return lines["line41"]; },
-        bottom: function() { return lines["line46"]; },
-        lines_available: function() {
+        top: function(cLines) { return cLines["line35"]; },
+        left: function(cLines) { return cLines["line40"]; },
+        right: function(cLines) { return cLines["line41"]; },
+        bottom: function(cLines) { return cLines["line46"]; },
+        lines_available: function(cLines) {
             var available = 0;
-            if (this.top() == false) {
+            if (this.top(cLines) == false) {
                 available++;
             }
-            if (this.left() == false) {
+            if (this.left(cLines) == false) {
                 available++;
             }
-            if (this.right() == false) {
+            if (this.right(cLines) == false) {
                 available++;
             }
-            if (this.bottom() == false) {
+            if (this.bottom(cLines) == false) {
                 available++;
             }
 
@@ -502,22 +502,22 @@ var boxes = {
     },
     box18: {
         isFull: false,
-        top: function() { return lines["line36"]; },
-        left: function() { return lines["line41"]; },
-        right: function() { return lines["line42"]; },
-        bottom: function() { return lines["line47"]; },
-        lines_available: function() {
+        top: function(cLines) { return cLines["line36"]; },
+        left: function(cLines) { return cLines["line41"]; },
+        right: function(cLines) { return cLines["line42"]; },
+        bottom: function(cLines) { return cLines["line47"]; },
+        lines_available: function(cLines) {
             var available = 0;
-            if (this.top() == false) {
+            if (this.top(cLines) == false) {
                 available++;
             }
-            if (this.left() == false) {
+            if (this.left(cLines) == false) {
                 available++;
             }
-            if (this.right() == false) {
+            if (this.right(cLines) == false) {
                 available++;
             }
-            if (this.bottom() == false) {
+            if (this.bottom(cLines) == false) {
                 available++;
             }
 
@@ -526,22 +526,22 @@ var boxes = {
     },
     box19: {
         isFull: false,
-        top: function() { return lines["line37"]; },
-        left: function() { return lines["line42"]; },
-        right: function() { return lines["line43"]; },
-        bottom: function() { return lines["line48"]; },
-        lines_available: function() {
+        top: function(cLines) { return cLines["line37"]; },
+        left: function(cLines) { return cLines["line42"]; },
+        right: function(cLines) { return cLines["line43"]; },
+        bottom: function(cLines) { return cLines["line48"]; },
+        lines_available: function(cLines) {
             var available = 0;
-            if (this.top() == false) {
+            if (this.top(cLines) == false) {
                 available++;
             }
-            if (this.left() == false) {
+            if (this.left(cLines) == false) {
                 available++;
             }
-            if (this.right() == false) {
+            if (this.right(cLines) == false) {
                 available++;
             }
-            if (this.bottom() == false) {
+            if (this.bottom(cLines) == false) {
                 available++;
             }
 
@@ -550,22 +550,22 @@ var boxes = {
     },
     box20: {
         isFull: false,
-        top: function() { return lines["line38"]; },
-        left: function() { return lines["line43"]; },
-        right: function() { return lines["line44"]; },
-        bottom: function() { return lines["line49"]; },
-        lines_available: function() {
+        top: function(cLines) { return cLines["line38"]; },
+        left: function(cLines) { return cLines["line43"]; },
+        right: function(cLines) { return cLines["line44"]; },
+        bottom: function(cLines) { return cLines["line49"]; },
+        lines_available: function(cLines) {
             var available = 0;
-            if (this.top() == false) {
+            if (this.top(cLines) == false) {
                 available++;
             }
-            if (this.left() == false) {
+            if (this.left(cLines) == false) {
                 available++;
             }
-            if (this.right() == false) {
+            if (this.right(cLines) == false) {
                 available++;
             }
-            if (this.bottom() == false) {
+            if (this.bottom(cLines) == false) {
                 available++;
             }
 
@@ -574,22 +574,22 @@ var boxes = {
     },
     box21: {
         isFull: false,
-        top: function() { return lines["line45"]; },
-        left: function() { return lines["line50"]; },
-        right: function() { return lines["line51"]; },
-        bottom: function() { return lines["line56"]; },
-        lines_available: function() {
+        top: function(cLines) { return cLines["line45"]; },
+        left: function(cLines) { return cLines["line50"]; },
+        right: function(cLines) { return cLines["line51"]; },
+        bottom: function(cLines) { return cLines["line56"]; },
+        lines_available: function(cLines) {
             var available = 0;
-            if (this.top() == false) {
+            if (this.top(cLines) == false) {
                 available++;
             }
-            if (this.left() == false) {
+            if (this.left(cLines) == false) {
                 available++;
             }
-            if (this.right() == false) {
+            if (this.right(cLines) == false) {
                 available++;
             }
-            if (this.bottom() == false) {
+            if (this.bottom(cLines) == false) {
                 available++;
             }
 
@@ -598,22 +598,22 @@ var boxes = {
     },
     box22: {
         isFull: false,
-        top: function() { return lines["line46"]; },
-        left: function() { return lines["line51"]; },
-        right: function() { return lines["line52"]; },
-        bottom: function() { return lines["line57"]; },
-        lines_available: function() {
+        top: function(cLines) { return cLines["line46"]; },
+        left: function(cLines) { return cLines["line51"]; },
+        right: function(cLines) { return cLines["line52"]; },
+        bottom: function(cLines) { return cLines["line57"]; },
+        lines_available: function(cLines) {
             var available = 0;
-            if (this.top() == false) {
+            if (this.top(cLines) == false) {
                 available++;
             }
-            if (this.left() == false) {
+            if (this.left(cLines) == false) {
                 available++;
             }
-            if (this.right() == false) {
+            if (this.right(cLines) == false) {
                 available++;
             }
-            if (this.bottom() == false) {
+            if (this.bottom(cLines) == false) {
                 available++;
             }
 
@@ -622,22 +622,22 @@ var boxes = {
     },
     box23: {
         isFull: false,
-        top: function() { return lines["line47"]; },
-        left: function() { return lines["line52"]; },
-        right: function() { return lines["line53"]; },
-        bottom: function() { return lines["line58"]; },
-        lines_available: function() {
+        top: function(cLines) { return cLines["line47"]; },
+        left: function(cLines) { return cLines["line52"]; },
+        right: function(cLines) { return cLines["line53"]; },
+        bottom: function(cLines) { return cLines["line58"]; },
+        lines_available: function(cLines) {
             var available = 0;
-            if (this.top() == false) {
+            if (this.top(cLines) == false) {
                 available++;
             }
-            if (this.left() == false) {
+            if (this.left(cLines) == false) {
                 available++;
             }
-            if (this.right() == false) {
+            if (this.right(cLines) == false) {
                 available++;
             }
-            if (this.bottom() == false) {
+            if (this.bottom(cLines) == false) {
                 available++;
             }
 
@@ -646,22 +646,22 @@ var boxes = {
     },
     box24: {
         isFull: false,
-        top: function() { return lines["line48"]; },
-        left: function() { return lines["line53"]; },
-        right: function() { return lines["line54"]; },
-        bottom: function() { return lines["line59"]; },
-        lines_available: function() {
+        top: function(cLines) { return cLines["line48"]; },
+        left: function(cLines) { return cLines["line53"]; },
+        right: function(cLines) { return cLines["line54"]; },
+        bottom: function(cLines) { return cLines["line59"]; },
+        lines_available: function(cLines) {
             var available = 0;
-            if (this.top() == false) {
+            if (this.top(cLines) == false) {
                 available++;
             }
-            if (this.left() == false) {
+            if (this.left(cLines) == false) {
                 available++;
             }
-            if (this.right() == false) {
+            if (this.right(cLines) == false) {
                 available++;
             }
-            if (this.bottom() == false) {
+            if (this.bottom(cLines) == false) {
                 available++;
             }
 
@@ -670,22 +670,22 @@ var boxes = {
     },
     box25: {
         isFull: false,
-        top: function() { return lines["line49"]; },
-        left: function() { return lines["line54"]; },
-        right: function() { return lines["line55"]; },
-        bottom: function() { return lines["line60"]; },
-        lines_available: function() {
+        top: function(cLines) { return cLines["line49"]; },
+        left: function(cLines) { return cLines["line54"]; },
+        right: function(cLines) { return cLines["line55"]; },
+        bottom: function(cLines) { return cLines["line60"]; },
+        lines_available: function(cLines) {
             var available = 0;
-            if (this.top() == false) {
+            if (this.top(cLines) == false) {
                 available++;
             }
-            if (this.left() == false) {
+            if (this.left(cLines) == false) {
                 available++;
             }
-            if (this.right() == false) {
+            if (this.right(cLines) == false) {
                 available++;
             }
-            if (this.bottom() == false) {
+            if (this.bottom(cLines) == false) {
                 available++;
             }
 
@@ -875,96 +875,20 @@ function minimax(tmpLines, depth, alpha, beta, isMaximizing) {
 }
 
 function filledBox(tmpLines1, isMaximizing) {
-    var completedBox = false;
     var tmpLines = JSON.parse(JSON.stringify(tmpLines1));
+    var completedBox = false;
 
+    var box = new Array(25);
     var i;
-    for (i = 1; i < 6; i++) {
-        var up = "line" + i;
-        var left = "line" + (i + 5);
-        var right = "line" + (i + 6);
-        var bottom = "line" + (i + 11);
-        var box = "box" + i;
-
-        if (tmpLines[up] == true && tmpLines[left] == true && tmpLines[right] == true && tmpLines[bottom] == true && tmpLines[box] == "nobody") {
+    for (i = 0; i < 25; i++) {
+        var boxName = "box" + (i + 1);
+        if (boxes[boxName].lines_available(tmpLines) == 0 && tmpLines[boxName] == "nobody") {
             completedBox = true;
             if (isMaximizing == true) {
-                tmpLines[box] = "player2";
+                tmpLines[boxName] = "player2";
             }
             else {
-                tmpLines[box] = "player1";
-            }
-        }
-    }
-
-    for (i = 6; i < 11; i++) {
-        var up = "line" + (i + 6);
-        var left = "line" + (i + 11);
-        var right = "line" + (i + 12);
-        var bottom = "line" + (i + 17);
-        var box = "box" + i;
-
-        if (tmpLines[up] == true && tmpLines[left] == true && tmpLines[right] == true && tmpLines[bottom] == true && tmpLines[box] == "nobody") {
-            completedBox = true;
-            if (isMaximizing == true) {
-                tmpLines[box] = "player2";
-            }
-            else {
-                tmpLines[box] = "player1";
-            }
-        }
-    }
-
-    for (i = 11; i < 16; i++) {
-        var up = "line" + (i + 12);
-        var left = "line" + (i + 17);
-        var right = "line" + (i + 18);
-        var bottom = "line" + (i + 23);
-        var box = "box" + i;
-
-        if (tmpLines[up] == true && tmpLines[left] == true && tmpLines[right] == true && tmpLines[bottom] == true && tmpLines[box] == "nobody") {
-            completedBox = true;
-            if (isMaximizing == true) {
-                tmpLines[box] = "player2";
-            }
-            else {
-                tmpLines[box] = "player1";
-            }
-        }
-    }
-
-    for (i = 16; i < 21; i++) {
-        var up = "line" + (i + 18);
-        var left = "line" + (i + 23);
-        var right = "line" + (i + 24);
-        var bottom = "line" + (i + 29);
-        var box = "box" + i;
-
-        if (tmpLines[up] == true && tmpLines[left] == true && tmpLines[right] == true && tmpLines[bottom] == true && tmpLines[box] == "nobody") {
-            completedBox = true;
-            if (isMaximizing == true) {
-                tmpLines[box] = "player2";
-            }
-            else {
-                tmpLines[box] = "player1";
-            }
-        }
-    }
-
-    for (i = 21; i < 26; i++) {
-        var up = "line" + (i + 24);
-        var left = "line" + (i + 29);
-        var right = "line" + (i + 30);
-        var bottom = "line" + (i + 35);
-        var box = "box" + i;
-
-        if (tmpLines[up] == true && tmpLines[left] == true && tmpLines[right] == true && tmpLines[bottom] == true && tmpLines[box] == "nobody") {
-            completedBox = true;
-            if (isMaximizing == true) {
-                tmpLines[box] = "player2";
-            }
-            else {
-                tmpLines[box] = "player1";
+                tmpLines[boxName] = "player1";
             }
         }
     }
@@ -1000,7 +924,7 @@ function boxFull() {
         var boxName = "box" + (i + 1);
         box[i] = document.getElementById(boxName);
 
-        if (boxes[boxName].lines_available() == 0 && boxes[boxName].isFull == false) {
+        if (boxes[boxName].lines_available(lines) == 0 && boxes[boxName].isFull == false) {
             lines[boxName] = turn;
             boxes[boxName].isFull = true;
             completedBox = true;

@@ -91,608 +91,287 @@ var lines = {
     box25: "nobody",
 };
 
-var boxes = {
+var boxIndex = {
     box1: {
         isFull: false,
-        top: function(cLines) { return cLines["line1"]; },
-        left: function(cLines) { return cLines["line6"]; },
-        right: function(cLines) { return cLines["line7"]; },
-        bottom: function(cLines) { return cLines["line12"]; },
-        lines_available: function(cLines) {
-            var available = 0;
-            if (this.top(cLines) == false) {
-                available++;
-            }
-            if (this.left(cLines) == false) {
-                available++;
-            }
-            if (this.right(cLines) == false) {
-                available++;
-            }
-            if (this.bottom(cLines) == false) {
-                available++;
-            }
-
-            return available;
-        }
+        state: true,
+        top: "line1",
+        left: "line6",
+        right: "line7",
+        bottom: "line12"
     },
     box2: {
         isFull: false,
-        top: function(cLines) { return cLines["line2"]; },
-        left: function(cLines) { return cLines["line7"]; },
-        right: function(cLines) { return cLines["line8"]; },
-        bottom: function(cLines) { return cLines["line13"]; },
-        lines_available: function(cLines) {
-            var available = 0;
-            if (this.top(cLines) == false) {
-                available++;
-            }
-            if (this.left(cLines) == false) {
-                available++;
-            }
-            if (this.right(cLines) == false) {
-                available++;
-            }
-            if (this.bottom(cLines) == false) {
-                available++;
-            }
-
-            return available;
-        }
+        state: true,
+        top: "line2",
+        left: "line7",
+        right: "line8",
+        bottom: "line13"
     },
     box3: {
         isFull: false,
-        top: function(cLines) { return cLines["line3"]; },
-        left: function(cLines) { return cLines["line8"]; },
-        right: function(cLines) { return cLines["line9"]; },
-        bottom: function(cLines) { return cLines["line14"]; },
-        lines_available: function(cLines) {
-            var available = 0;
-            if (this.top(cLines) == false) {
-                available++;
-            }
-            if (this.left(cLines) == false) {
-                available++;
-            }
-            if (this.right(cLines) == false) {
-                available++;
-            }
-            if (this.bottom(cLines) == false) {
-                available++;
-            }
-
-            return available;
-        }
+        state: true,
+        top: "line3",
+        left: "line8",
+        right: "line9",
+        bottom: "line14"
     },
     box4: {
         isFull: false,
-        top: function(cLines) { return cLines["line4"]; },
-        left: function(cLines) { return cLines["line9"]; },
-        right: function(cLines) { return cLines["line10"]; },
-        bottom: function(cLines) { return cLines["line15"]; },
-        lines_available: function(cLines) {
-            var available = 0;
-            if (this.top(cLines) == false) {
-                available++;
-            }
-            if (this.left(cLines) == false) {
-                available++;
-            }
-            if (this.right(cLines) == false) {
-                available++;
-            }
-            if (this.bottom(cLines) == false) {
-                available++;
-            }
-
-            return available;
-        }
+        state: true,
+        top: "line4",
+        left: "line9",
+        right: "line10",
+        bottom: "line15"
     },
     box5: {
         isFull: false,
-        top: function(cLines) { return cLines["line5"]; },
-        left: function(cLines) { return cLines["line10"]; },
-        right: function(cLines) { return cLines["line11"]; },
-        bottom: function(cLines) { return cLines["line16"]; },
-        lines_available: function(cLines) {
-            var available = 0;
-            if (this.top(cLines) == false) {
-                available++;
-            }
-            if (this.left(cLines) == false) {
-                available++;
-            }
-            if (this.right(cLines) == false) {
-                available++;
-            }
-            if (this.bottom(cLines) == false) {
-                available++;
-            }
-
-            return available;
-        }
+        state: true,
+        top: "line5",
+        left: "line10",
+        right: "line11",
+        bottom: "line16"
     },
     box6: {
         isFull: false,
-        top: function(cLines) { return cLines["line12"]; },
-        left: function(cLines) { return cLines["line17"]; },
-        right: function(cLines) { return cLines["line18"]; },
-        bottom: function(cLines) { return cLines["line23"]; },
-        lines_available: function(cLines) {
-            var available = 0;
-            if (this.top(cLines) == false) {
-                available++;
-            }
-            if (this.left(cLines) == false) {
-                available++;
-            }
-            if (this.right(cLines) == false) {
-                available++;
-            }
-            if (this.bottom(cLines) == false) {
-                available++;
-            }
-
-            return available;
-        }
+        state: true,
+        top: "line12",
+        left: "line17",
+        right: "line18",
+        bottom: "line23"
     },
     box7: {
         isFull: false,
-        top: function(cLines) { return cLines["line13"]; },
-        left: function(cLines) { return cLines["line18"]; },
-        right: function(cLines) { return cLines["line19"]; },
-        bottom: function(cLines) { return cLines["line24"]; },
-        lines_available: function(cLines) {
-            var available = 0;
-            if (this.top(cLines) == false) {
-                available++;
-            }
-            if (this.left(cLines) == false) {
-                available++;
-            }
-            if (this.right(cLines) == false) {
-                available++;
-            }
-            if (this.bottom(cLines) == false) {
-                available++;
-            }
-
-            return available;
-        }
+        state: true,
+        top: "line13",
+        left: "line18",
+        right: "line19",
+        bottom: "line24"
     },
     box8: {
         isFull: false,
-        top: function(cLines) { return cLines["line14"]; },
-        left: function(cLines) { return cLines["line19"]; },
-        right: function(cLines) { return cLines["line20"]; },
-        bottom: function(cLines) { return cLines["line25"]; },
-        lines_available: function(cLines) {
-            var available = 0;
-            if (this.top(cLines) == false) {
-                available++;
-            }
-            if (this.left(cLines) == false) {
-                available++;
-            }
-            if (this.right(cLines) == false) {
-                available++;
-            }
-            if (this.bottom(cLines) == false) {
-                available++;
-            }
-
-            return available;
-        }
+        state: true,
+        top: "line14",
+        left: "line19",
+        right: "line20",
+        bottom: "line25"
     },
     box9: {
         isFull: false,
-        top: function(cLines) { return cLines["line15"]; },
-        left: function(cLines) { return cLines["line20"]; },
-        right: function(cLines) { return cLines["line21"]; },
-        bottom: function(cLines) { return cLines["line26"]; },
-        lines_available: function(cLines) {
-            var available = 0;
-            if (this.top(cLines) == false) {
-                available++;
-            }
-            if (this.left(cLines) == false) {
-                available++;
-            }
-            if (this.right(cLines) == false) {
-                available++;
-            }
-            if (this.bottom(cLines) == false) {
-                available++;
-            }
-
-            return available;
-        }
+        state: true,
+        top: "line15",
+        left: "line20",
+        right: "line21",
+        bottom: "line26"
     },
     box10: {
         isFull: false,
-        top: function(cLines) { return cLines["line16"]; },
-        left: function(cLines) { return cLines["line21"]; },
-        right: function(cLines) { return cLines["line22"]; },
-        bottom: function(cLines) { return cLines["line27"]; },
-        lines_available: function(cLines) {
-            var available = 0;
-            if (this.top(cLines) == false) {
-                available++;
-            }
-            if (this.left(cLines) == false) {
-                available++;
-            }
-            if (this.right(cLines) == false) {
-                available++;
-            }
-            if (this.bottom(cLines) == false) {
-                available++;
-            }
-
-            return available;
-        }
+        state: true,
+        top: "line16",
+        left: "line21",
+        right: "line22",
+        bottom: "line27"
     },
     box11: {
         isFull: false,
-        top: function(cLines) { return cLines["line23"]; },
-        left: function(cLines) { return cLines["line28"]; },
-        right: function(cLines) { return cLines["line29"]; },
-        bottom: function(cLines) { return cLines["line34"]; },
-        lines_available: function(cLines) {
-            var available = 0;
-            if (this.top(cLines) == false) {
-                available++;
-            }
-            if (this.left(cLines) == false) {
-                available++;
-            }
-            if (this.right(cLines) == false) {
-                available++;
-            }
-            if (this.bottom(cLines) == false) {
-                available++;
-            }
-
-            return available;
-        }
+        state: true,
+        top: "line23",
+        left: "line28",
+        right: "line29",
+        bottom: "line34"
     },
     box12: {
         isFull: false,
-        top: function(cLines) { return cLines["line24"]; },
-        left: function(cLines) { return cLines["line29"]; },
-        right: function(cLines) { return cLines["line30"]; },
-        bottom: function(cLines) { return cLines["line35"]; },
-        lines_available: function(cLines) {
-            var available = 0;
-            if (this.top(cLines) == false) {
-                available++;
-            }
-            if (this.left(cLines) == false) {
-                available++;
-            }
-            if (this.right(cLines) == false) {
-                available++;
-            }
-            if (this.bottom(cLines) == false) {
-                available++;
-            }
-
-            return available;
-        }
+        state: true,
+        top: "line24",
+        left: "line29",
+        right: "line30",
+        bottom: "line35"
     },
     box13: {
         isFull: false,
-        top: function(cLines) { return cLines["line25"]; },
-        left: function(cLines) { return cLines["line30"]; },
-        right: function(cLines) { return cLines["line31"]; },
-        bottom: function(cLines) { return cLines["line36"]; },
-        lines_available: function(cLines) {
-            var available = 0;
-            if (this.top(cLines) == false) {
-                available++;
-            }
-            if (this.left(cLines) == false) {
-                available++;
-            }
-            if (this.right(cLines) == false) {
-                available++;
-            }
-            if (this.bottom(cLines) == false) {
-                available++;
-            }
-
-            return available;
-        }
+        state: true,
+        top: "line25",
+        left: "line30",
+        right: "line31",
+        bottom: "line36"
     },
     box14: {
         isFull: false,
-        top: function(cLines) { return cLines["line26"]; },
-        left: function(cLines) { return cLines["line31"]; },
-        right: function(cLines) { return cLines["line32"]; },
-        bottom: function(cLines) { return cLines["line37"]; },
-        lines_available: function(cLines) {
-            var available = 0;
-            if (this.top(cLines) == false) {
-                available++;
-            }
-            if (this.left(cLines) == false) {
-                available++;
-            }
-            if (this.right(cLines) == false) {
-                available++;
-            }
-            if (this.bottom(cLines) == false) {
-                available++;
-            }
-
-            return available;
-        }
+        state: true,
+        top: "line26",
+        left: "line31",
+        right: "line32",
+        bottom: "line37"
     },
     box15: {
         isFull: false,
-        top: function(cLines) { return cLines["line27"]; },
-        left: function(cLines) { return cLines["line32"]; },
-        right: function(cLines) { return cLines["line33"]; },
-        bottom: function(cLines) { return cLines["line38"]; },
-        lines_available: function(cLines) {
-            var available = 0;
-            if (this.top(cLines) == false) {
-                available++;
-            }
-            if (this.left(cLines) == false) {
-                available++;
-            }
-            if (this.right(cLines) == false) {
-                available++;
-            }
-            if (this.bottom(cLines) == false) {
-                available++;
-            }
-
-            return available;
-        }
+        state: true,
+        top: "line27",
+        left: "line32",
+        right: "line33",
+        bottom: "line38"
     },
     box16: {
         isFull: false,
-        top: function(cLines) { return cLines["line34"]; },
-        left: function(cLines) { return cLines["line39"]; },
-        right: function(cLines) { return cLines["line40"]; },
-        bottom: function(cLines) { return cLines["line45"]; },
-        lines_available: function(cLines) {
-            var available = 0;
-            if (this.top(cLines) == false) {
-                available++;
-            }
-            if (this.left(cLines) == false) {
-                available++;
-            }
-            if (this.right(cLines) == false) {
-                available++;
-            }
-            if (this.bottom(cLines) == false) {
-                available++;
-            }
-
-            return available;
-        }
+        state: true,
+        top: "line34",
+        left: "line39",
+        right: "line40",
+        bottom: "line45"
     },
     box17: {
         isFull: false,
-        top: function(cLines) { return cLines["line35"]; },
-        left: function(cLines) { return cLines["line40"]; },
-        right: function(cLines) { return cLines["line41"]; },
-        bottom: function(cLines) { return cLines["line46"]; },
-        lines_available: function(cLines) {
-            var available = 0;
-            if (this.top(cLines) == false) {
-                available++;
-            }
-            if (this.left(cLines) == false) {
-                available++;
-            }
-            if (this.right(cLines) == false) {
-                available++;
-            }
-            if (this.bottom(cLines) == false) {
-                available++;
-            }
-
-            return available;
-        }
+        state: true,
+        top: "line35",
+        left: "line40",
+        right: "line41",
+        bottom: "line46"
     },
     box18: {
         isFull: false,
-        top: function(cLines) { return cLines["line36"]; },
-        left: function(cLines) { return cLines["line41"]; },
-        right: function(cLines) { return cLines["line42"]; },
-        bottom: function(cLines) { return cLines["line47"]; },
-        lines_available: function(cLines) {
-            var available = 0;
-            if (this.top(cLines) == false) {
-                available++;
-            }
-            if (this.left(cLines) == false) {
-                available++;
-            }
-            if (this.right(cLines) == false) {
-                available++;
-            }
-            if (this.bottom(cLines) == false) {
-                available++;
-            }
-
-            return available;
-        }
+        state: true,
+        top: "line36",
+        left: "line41",
+        right: "line42",
+        bottom: "line47"
     },
     box19: {
         isFull: false,
-        top: function(cLines) { return cLines["line37"]; },
-        left: function(cLines) { return cLines["line42"]; },
-        right: function(cLines) { return cLines["line43"]; },
-        bottom: function(cLines) { return cLines["line48"]; },
-        lines_available: function(cLines) {
-            var available = 0;
-            if (this.top(cLines) == false) {
-                available++;
-            }
-            if (this.left(cLines) == false) {
-                available++;
-            }
-            if (this.right(cLines) == false) {
-                available++;
-            }
-            if (this.bottom(cLines) == false) {
-                available++;
-            }
-
-            return available;
-        }
+        state: true,
+        top: "line37",
+        left: "line42",
+        right: "line43",
+        bottom: "line48"
     },
     box20: {
         isFull: false,
-        top: function(cLines) { return cLines["line38"]; },
-        left: function(cLines) { return cLines["line43"]; },
-        right: function(cLines) { return cLines["line44"]; },
-        bottom: function(cLines) { return cLines["line49"]; },
-        lines_available: function(cLines) {
-            var available = 0;
-            if (this.top(cLines) == false) {
-                available++;
-            }
-            if (this.left(cLines) == false) {
-                available++;
-            }
-            if (this.right(cLines) == false) {
-                available++;
-            }
-            if (this.bottom(cLines) == false) {
-                available++;
-            }
-
-            return available;
-        }
+        state: true,
+        top: "line38",
+        left: "line43",
+        right: "line44",
+        bottom: "line49"
     },
     box21: {
         isFull: false,
-        top: function(cLines) { return cLines["line45"]; },
-        left: function(cLines) { return cLines["line50"]; },
-        right: function(cLines) { return cLines["line51"]; },
-        bottom: function(cLines) { return cLines["line56"]; },
-        lines_available: function(cLines) {
-            var available = 0;
-            if (this.top(cLines) == false) {
-                available++;
-            }
-            if (this.left(cLines) == false) {
-                available++;
-            }
-            if (this.right(cLines) == false) {
-                available++;
-            }
-            if (this.bottom(cLines) == false) {
-                available++;
-            }
-
-            return available;
-        }
+        state: true,
+        top: "line45",
+        left: "line50",
+        right: "line51",
+        bottom: "line56"
     },
     box22: {
         isFull: false,
-        top: function(cLines) { return cLines["line46"]; },
-        left: function(cLines) { return cLines["line51"]; },
-        right: function(cLines) { return cLines["line52"]; },
-        bottom: function(cLines) { return cLines["line57"]; },
-        lines_available: function(cLines) {
-            var available = 0;
-            if (this.top(cLines) == false) {
-                available++;
-            }
-            if (this.left(cLines) == false) {
-                available++;
-            }
-            if (this.right(cLines) == false) {
-                available++;
-            }
-            if (this.bottom(cLines) == false) {
-                available++;
-            }
-
-            return available;
-        }
+        state: true,
+        top: "line46",
+        left: "line51",
+        right: "line52",
+        bottom: "line57"
     },
     box23: {
         isFull: false,
-        top: function(cLines) { return cLines["line47"]; },
-        left: function(cLines) { return cLines["line52"]; },
-        right: function(cLines) { return cLines["line53"]; },
-        bottom: function(cLines) { return cLines["line58"]; },
-        lines_available: function(cLines) {
-            var available = 0;
-            if (this.top(cLines) == false) {
-                available++;
-            }
-            if (this.left(cLines) == false) {
-                available++;
-            }
-            if (this.right(cLines) == false) {
-                available++;
-            }
-            if (this.bottom(cLines) == false) {
-                available++;
-            }
-
-            return available;
-        }
+        state: true,
+        top: "line47",
+        left: "line52",
+        right: "line53",
+        bottom: "line58"
     },
     box24: {
         isFull: false,
-        top: function(cLines) { return cLines["line48"]; },
-        left: function(cLines) { return cLines["line53"]; },
-        right: function(cLines) { return cLines["line54"]; },
-        bottom: function(cLines) { return cLines["line59"]; },
-        lines_available: function(cLines) {
-            var available = 0;
-            if (this.top(cLines) == false) {
-                available++;
-            }
-            if (this.left(cLines) == false) {
-                available++;
-            }
-            if (this.right(cLines) == false) {
-                available++;
-            }
-            if (this.bottom(cLines) == false) {
-                available++;
-            }
-
-            return available;
-        }
+        state: true,
+        top: "line48",
+        left: "line53",
+        right: "line54",
+        bottom: "line59"
     },
     box25: {
         isFull: false,
-        top: function(cLines) { return cLines["line49"]; },
-        left: function(cLines) { return cLines["line54"]; },
-        right: function(cLines) { return cLines["line55"]; },
-        bottom: function(cLines) { return cLines["line60"]; },
-        lines_available: function(cLines) {
-            var available = 0;
-            if (this.top(cLines) == false) {
-                available++;
-            }
-            if (this.left(cLines) == false) {
-                available++;
-            }
-            if (this.right(cLines) == false) {
-                available++;
-            }
-            if (this.bottom(cLines) == false) {
-                available++;
-            }
-
-            return available;
-        }
+        state: true,
+        top: "line49",
+        left: "line54",
+        right: "line55",
+        bottom: "line60"
     }
 };
+
+var boxes = {
+    top: function(boxName, cLines) { return cLines[boxIndex[boxName].top]; },
+    left: function(boxName, cLines) { return cLines[boxIndex[boxName].left]; },
+    right: function(boxName, cLines) { return cLines[boxIndex[boxName].right]; },
+    bottom: function(boxName, cLines) { return cLines[boxIndex[boxName].bottom]; },
+    lines_available: function(boxName, cLines) {
+        var available = 0;
+        if (this.top(boxName, cLines) == false) {
+            available++;
+        }
+        if (this.left(boxName, cLines) == false) {
+            available++;
+        }
+        if (this.right(boxName, cLines) == false) {
+            available++;
+        }
+        if (this.bottom(boxName, cLines) == false) {
+            available++;
+        }
+
+        return available;
+    }
+};
+
+function numChains(boxNum, boxList, cLines) {
+    var checkCurrentBox = true;
+    var boxName = "box" + boxNum;
+    var firstLines = [];
+    if (boxes.lines_available(boxName, cLines) == 2 && boxIndex[boxName].state == true) {
+        var i;
+        for (i = 0; i < boxList.length; i++) {
+            if (boxList[i] == boxName) {
+                checkCurrentBox = false;
+            }
+        }
+        if (checkCurrentBox == true) {
+            boxList.push(boxName);
+            if (boxes.top(boxName, cLines) == false && boxNum > 5) {
+                numChains(boxNum - 5, boxList, cLines);
+            }
+            if (boxes.left(boxName, cLines) == false && boxNum != 1 && boxNum != 6 && boxNum != 11 && boxNum != 16 && boxNum != 21) {
+                numChains(boxNum - 1, boxList, cLines);
+            }
+            if (boxes.right(boxName, cLines) == false &&  (boxNum % 5) != 0) {
+                numChains(boxNum + 1, boxList, cLines);
+            }
+            if (boxes.bottom(boxName, cLines) == false && boxNum < 21) {
+                numChains(boxNum + 5, boxList, cLines);
+            }
+        }
+    }
+    if (boxList.length > 2) {
+        boxIndex[boxName].state = false;
+    }
+
+    return boxList.length;
+}
+
+function loopChains(cLines) {
+    var chainCount = 0;
+    var chainLength = 0;
+    var boxList = [];
+    var i;
+    for (i = 1; i < 26; i++) {
+        var boxName = "box" + i;
+        boxIndex[boxName].state = true;
+    }
+    for (i = 1; i < 26; i++) {
+        boxList = [];
+        chainLength = numChains(i, boxList, cLines);
+
+        if (chainLength > 2) {
+            chainCount++;
+        }
+    }
+
+    return chainCount;
+}
 
 function lineSelect(line) {
     var currentStyle = line.style.stroke;
@@ -728,8 +407,7 @@ function noMoves(tmpLines) {
 function computerMove() {
     while (turn == "player2" && noMoves(lines) == false) {
         var cLines = JSON.parse(JSON.stringify(lines));
-        var move = bestMove(cLines);
-        var lineName = "line" + move;
+        var lineName = bestMove(cLines);
         var line = document.getElementById(lineName);
 
         if (lines[lineName] == false) {
@@ -765,19 +443,13 @@ function bestMove(tmpLines) {
     var moveScore;
     var move;
     var i;
-    var totalMovesLeft = movesLeft();
     var depth;
-    if (totalMovesLeft > 18) {
+    var linesLeft = movesLeft()
+    if (linesLeft > 10) {
         depth = 2;
     }
-    else if (totalMovesLeft > 10 && totalMovesLeft < 19) {
-        depth = 4;
-    }
-    else if (totalMovesLeft > 8 && totalMovesLeft < 11) {
-        depth = 6;
-    }
     else {
-        depth = 8;
+        depth = 4;
     }
     for (i = 1; i < 61; i++) {
         var lineName = "line" + i;
@@ -793,7 +465,7 @@ function bestMove(tmpLines) {
             tmpLines[lineName] = false;
             if (moveScore > bestMoveScore) {
                 bestMoveScore = moveScore;
-                move = i;
+                move = lineName;
             }
         }
     }
@@ -820,9 +492,8 @@ function min(a, b) {
 }
 
 function minimax(tmpLines, depth, alpha, beta, isMaximizing) {
-    var score = scoreLines(tmpLines);
-
     if (depth <= 0 || noMoves(tmpLines) == true) {
+        var score = scoreLines(tmpLines);
         return score;
     }
 
@@ -882,7 +553,7 @@ function filledBox(tmpLines1, isMaximizing) {
     var i;
     for (i = 0; i < 25; i++) {
         var boxName = "box" + (i + 1);
-        if (boxes[boxName].lines_available(tmpLines) == 0 && tmpLines[boxName] == "nobody") {
+        if (boxes.lines_available(boxName, tmpLines) == 0 && tmpLines[boxName] == "nobody") {
             completedBox = true;
             if (isMaximizing == true) {
                 tmpLines[boxName] = "player2";
@@ -912,6 +583,23 @@ function scoreLines(tmpLines) {
         }
     }
 
+    var chainCount = loopChains(tmpLines);
+
+    if (chainCount != 0) {
+        if (firstTurn == "player2" && (chainCount % 2) == 0) {
+            score = score + 1;
+        }
+        else if (firstTurn == "player2" && (chainCount % 2) != 0) {
+            score = score - 1;
+        }
+        else if (firstTurn == "player1" && (chainCount % 2) == 0) {
+            score = score - 1;
+        }
+        else if (firstTurn == "player1" && (chainCount % 2) != 0) {
+            score = score + 1;
+        }
+    }
+
     return score;
 }
 
@@ -924,9 +612,9 @@ function boxFull() {
         var boxName = "box" + (i + 1);
         box[i] = document.getElementById(boxName);
 
-        if (boxes[boxName].lines_available(lines) == 0 && boxes[boxName].isFull == false) {
+        if (boxes.lines_available(boxName, lines) == 0 && boxIndex[boxName].isFull == false) {
             lines[boxName] = turn;
-            boxes[boxName].isFull = true;
+            boxIndex[boxName].isFull = true;
             completedBox = true;
             if (turn == "player1") {
                 player1Score++;
@@ -983,7 +671,7 @@ function reset() {
     for (i = 1; i < 26; i++) {
         var boxName = "box" + i;
         lines[boxName] = "nobody";
-        boxes[boxName].isFull = false;
+        boxIndex[boxName].isFull = false;
     }
 
     if (firstTurn == "player1") {

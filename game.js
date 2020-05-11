@@ -318,12 +318,26 @@ var boxes = {
     }
 };
 
-function numChains(boxNum, boxList, cLines) {
+function addLine(lineList, lineName) {
+    var match = false;
+    if (lines[lineName] == false) {
+        for (i = 0; i < lineList.length; i++) {
+            if (lineName == lineList[i]) {
+                match = true;
+            }
+        }
+        if (match == false) {
+            lineList.push(lineName);
+        }
+    }
+}
+
+function numChains(boxNum, boxList, lineList, cLines) {
     var checkCurrentBox = true;
     var boxName = "box" + boxNum;
-    var firstLines = [];
-    if (boxes.lines_available(boxName, cLines) == 2 && boxIndex[boxName].state == true) {
-        var i;
+    var i;
+    var match;
+    if ((boxes.lines_available(boxName, cLines) == 2 || boxes.lines_available(boxName, cLines) == 1) && boxIndex[boxName].state == true) {
         for (i = 0; i < boxList.length; i++) {
             if (boxList[i] == boxName) {
                 checkCurrentBox = false;
@@ -331,17 +345,29 @@ function numChains(boxNum, boxList, cLines) {
         }
         if (checkCurrentBox == true) {
             boxList.push(boxName);
-            if (boxes.top(boxName, cLines) == false && boxNum > 5) {
-                numChains(boxNum - 5, boxList, cLines);
+            if (boxes.top(boxName, cLines) == false) {
+                addLine(lineList, boxIndex[boxName].top);
+                if (boxNum > 5) {
+                    numChains(boxNum - 5, boxList, lineList, cLines);
+                }
             }
-            if (boxes.left(boxName, cLines) == false && boxNum != 1 && boxNum != 6 && boxNum != 11 && boxNum != 16 && boxNum != 21) {
-                numChains(boxNum - 1, boxList, cLines);
+            if (boxes.left(boxName, cLines) == false) {
+                addLine(lineList, boxIndex[boxName].left);
+                if (boxNum != 1 && boxNum != 6 && boxNum != 11 && boxNum != 16 && boxNum != 21) {
+                    numChains(boxNum - 1, boxList, lineList, cLines);
+                }
             }
-            if (boxes.right(boxName, cLines) == false &&  (boxNum % 5) != 0) {
-                numChains(boxNum + 1, boxList, cLines);
+            if (boxes.right(boxName, cLines) == false) {
+                addLine(lineList, boxIndex[boxName].right);
+                if ((boxNum % 5) != 0) {
+                    numChains(boxNum + 1, boxList, lineList, cLines);
+                }
             }
             if (boxes.bottom(boxName, cLines) == false && boxNum < 21) {
-                numChains(boxNum + 5, boxList, cLines);
+                addLine(lineList, boxIndex[boxName].bottom);
+                if (boxNum < 21) {
+                    numChains(boxNum + 5, boxList, lineList, cLines);
+                }
             }
         }
     }
@@ -353,9 +379,10 @@ function numChains(boxNum, boxList, cLines) {
 }
 
 function loopChains(cLines) {
-    var chainCount = 0;
+    var totalwins = 0;
     var chainLength = 0;
     var boxList = [];
+    var lineList = [];
     var i;
     for (i = 1; i < 26; i++) {
         var boxName = "box" + i;
@@ -363,14 +390,18 @@ function loopChains(cLines) {
     }
     for (i = 1; i < 26; i++) {
         boxList = [];
-        chainLength = numChains(i, boxList, cLines);
+        lineList = [];
+        var boxName = "box" + i;
+        if (boxes.lines_available(boxName, cLines) == 1) {
+            var chainLength = numChains(i, boxList, lineList, cLines);
 
-        if (chainLength > 2) {
-            chainCount++;
+            if (chainLength > 2) {
+                totalwins = totalwins + chainLength;
+            }
         }
     }
 
-    return chainCount;
+    return totalwins;
 }
 
 function lineSelect(line) {
@@ -424,13 +455,13 @@ function computerMove() {
     }
 }
 
-function movesLeft() {
+function movesLeft(tmpLines) {
     var moveCount = 0;
 
     var i;
     for (i = 1; i < 61; i++) {
         var name = "line" + i;
-        if (lines[name] == false) {
+        if (tmpLines[name] == false) {
             moveCount++;
         }
     }
@@ -444,7 +475,7 @@ function bestMove(tmpLines) {
     var move;
     var i;
     var depth;
-    var linesLeft = movesLeft()
+    var linesLeft = movesLeft(tmpLines);
     if (linesLeft > 10) {
         depth = 2;
     }
@@ -493,7 +524,7 @@ function min(a, b) {
 
 function minimax(tmpLines, depth, alpha, beta, isMaximizing) {
     if (depth <= 0 || noMoves(tmpLines) == true) {
-        var score = scoreLines(tmpLines);
+        var score = scoreLines(tmpLines, isMaximizing);
         return score;
     }
 
@@ -569,7 +600,7 @@ function filledBox(tmpLines1, isMaximizing) {
     return data;
 }
 
-function scoreLines(tmpLines) {
+function scoreLines(tmpLines, isMaximizing) {
     var score = 0;
 
     var i;
@@ -585,19 +616,11 @@ function scoreLines(tmpLines) {
 
     var chainCount = loopChains(tmpLines);
 
-    if (chainCount != 0) {
-        if (firstTurn == "player2" && (chainCount % 2) == 0) {
-            score = score + 1;
-        }
-        else if (firstTurn == "player2" && (chainCount % 2) != 0) {
-            score = score - 1;
-        }
-        else if (firstTurn == "player1" && (chainCount % 2) == 0) {
-            score = score - 1;
-        }
-        else if (firstTurn == "player1" && (chainCount % 2) != 0) {
-            score = score + 1;
-        }
+    if (isMaximizing == true) {
+        score = score + chainCount;
+    }
+    else {
+        score = score - chainCount;
     }
 
     return score;

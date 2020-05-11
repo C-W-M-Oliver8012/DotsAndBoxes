@@ -480,7 +480,7 @@ function bestMove(tmpLines) {
         depth = 2;
     }
     else {
-        depth = 4;
+        depth = 6;
     }
     for (i = 1; i < 61; i++) {
         var lineName = "line" + i;

@@ -10,10 +10,11 @@
     <h1>Dots and Boxes</h1>
     <p>By Caden Miller</p>
 
-    <input id="reset-button" type="button" value="Reset" onclick="reset()" />
-    <br>
-    <p id="player1-score">Player1: 0</p>
-    <p id="player2-score">Player2: 0</p>
+    <div id="game-stuff">
+        <input id="reset-button" type="button" value="Reset" onclick="reset()" />
+        <p id="player1-score">Player1: 0</p>
+        <p id="player2-score">Player2: 0</p>
+    </div>
 
     <svg width="700" height="700">
         <line id="line1" x1="100" y1="100" x2="200" y2="100" onmouseover="highlight(this)" onmouseout="unhighlight(this)" onclick="lineSelect(this)" />

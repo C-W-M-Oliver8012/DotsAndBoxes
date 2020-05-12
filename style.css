@@ -1,22 +1,36 @@
 body
 {
     background-color: white;
+    text-align: center;
+}
+
+#game-stuff
+{
+    display: flex;
+    max-width: 40em;
+    margin: auto;
 }
 
 #reset-button
 {
+    display: block;
+    margin: auto;
     padding: 15px;
     font-size: 1.5em;
 }
 
 #player1-score
 {
+    display: block;
+    margin: auto;
     color: DeepSkyBlue;
     font-size: 1.5em;
 }
 
 #player2-score
 {
+    display: block;
+    margin: auto;
     color: IndianRed;
     font-size: 1.5em;
 }

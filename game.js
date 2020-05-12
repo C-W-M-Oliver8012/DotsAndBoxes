@@ -459,6 +459,101 @@ function evalChains(boxNum, boxList, lineList, fullLineList, lastLine, cLines) {
     return [boxList.length, lineList];
 }
 
+function evalNumChains(boxNum, boxList, lineList, lastLine, cLines) {
+    var checkCurrentBox = true;
+    var boxName = "box" + boxNum;
+    var i;
+    if ((boxes.lines_available(boxName, cLines) == 2 || boxes.lines_available(boxName, cLines) == 1) && boxIndex[boxName].state == true) {
+        for (i = 0; i < boxList.length; i++) {
+            if (boxList[i] == boxName) {
+                checkCurrentBox = false;
+            }
+        }
+        if (checkCurrentBox == true) {
+            boxList.push(boxName);
+            if (boxes.top(boxName, cLines) == false) {
+                if (boxNum > 5) {
+                    evalNumChains(boxNum - 5, boxList, lineList, boxIndex[boxName].top, cLines);
+                }
+                else {
+                    addLine(lineList, boxIndex[boxName].top);
+                }
+            }
+            if (boxes.left(boxName, cLines) == false) {
+                if (boxNum != 1 && boxNum != 6 && boxNum != 11 && boxNum != 16 && boxNum != 21) {
+                    evalNumChains(boxNum - 1, boxList, lineList, boxIndex[boxName].left, cLines);
+                }
+                else {
+                    addLine(lineList, boxIndex[boxName].left);
+                }
+            }
+            if (boxes.right(boxName, cLines) == false) {
+                if ((boxNum % 5) != 0) {
+                    evalNumChains(boxNum + 1, boxList, lineList, boxIndex[boxName].right, cLines);
+                }
+                else {
+                    addLine(lineList, boxIndex[boxName].right);
+                }
+            }
+            if (boxes.bottom(boxName, cLines) == false) {
+                if (boxNum < 21) {
+                    evalNumChains(boxNum + 5, boxList, lineList, boxIndex[boxName].bottom, cLines);
+                }
+                else {
+                    addLine(lineList, boxIndex[boxName].bottom);
+                }
+            }
+        }
+    }
+    else {
+        addLine(lineList, lastLine);
+    }
+
+    if (boxList.length > 2) {
+        boxIndex[boxName].state = false;
+    }
+
+    return [boxList.length, lineList.length];
+}
+
+function getNumChains(cLines) {
+    var numChains = 0;
+    var chainLength;
+    var boxList = [];
+    var lineList = [];
+    var i;
+    for (i = 1; i < 26; i++) {
+        var boxName = "box" + i;
+        boxIndex[boxName].state = true;
+    }
+    for (i = 1; i < 26; i++) {
+        boxList = [];
+        lineList = [];
+        var boxName = "box" + i;
+        if (boxes.lines_available(boxName, cLines) == 1) {
+            if (cLines[boxIndex[boxName].top] == false) {
+                addLine(lineList, boxIndex[boxName].top);
+            }
+            else if (cLines[boxIndex[boxName].left] == false) {
+                addLine(lineList, boxIndex[boxName].left);
+            }
+            else if (cLines[boxIndex[boxName].right] == false) {
+                addLine(lineList, boxIndex[boxName].right);
+            }
+            else if (cLines[boxIndex[boxName].bottom] == false) {
+                addLine(lineList, boxIndex[boxName].bottom);
+            }
+        }
+        chainLength = evalNumChains(i, boxList, lineList, "null", cLines);
+
+        if (chainLength[0] > 2 && chainLength[1] > 1) {
+            numChains++;
+        }
+    }
+
+    return numChains;
+}
+
 function getScoreChains(boxNum, boxList, cLines) {
     var checkCurrentBox = true;
     var boxName = "box" + boxNum;
@@ -493,32 +588,11 @@ function getScoreChains(boxNum, boxList, cLines) {
     return boxList.length;
 }
 
-function getNumChains(cLines) {
-    var numChains = 0;
-    var chainLength = 0;
-    var boxList = [];
-    var i;
-    for (i = 1; i < 26; i++) {
-        var boxName = "box" + i;
-        boxIndex[boxName].state = true;
-    }
-    for (i = 1; i < 26; i++) {
-        boxList = [];
-        var boxName = "box" + i;
-        chainLength = getScoreChains(i, boxList, cLines);
-
-        if (chainLength > 2) {
-            numChains++;
-        }
-    }
-
-    return numChains;
-}
-
 function scoreChains(cLines) {
     var totalwins = 0;
     var chainLength = 0;
     var boxList = [];
+    lineList = [];
     var i;
     for (i = 1; i < 26; i++) {
         var boxName = "box" + i;
@@ -695,15 +769,12 @@ function bestMove(tmpLines) {
     var depth;
     var evalLines = getEvalLines(tmpLines);
     var linesLeft = evalLines.length;
-    /*
-    if (linesLeft > 6) {
+    if (linesLeft > 8) {
         depth = 2;
     }
     else {
         depth = 4;
     }
-    */
-    depth = 2;
     console.clear();
     for (i = 0; i < evalLines.length; i++) {
         if (tmpLines[evalLines[i]] == false) {
@@ -844,20 +915,22 @@ function scoreLines(tmpLines, isMaximizing) {
         score = score - chainCount;
     }
 
+    /*
     var numChains = getNumChains(tmpLines);
     if (firstTurn == "player2" && (numChains % 2) == 0) {
-        score = score - 10;
+        score = score + 1;
     }
     else if (firstTurn == "player2" && (numChains % 2) != 0) {
-        score = score + 10;
+        score = score - 1;
     }
 
     if (firstTurn == "player1" && (numChains % 2) == 0) {
-        score = score + 10;
+        score = score - 1;
     }
     else if (firstTurn == "player1" && (numChains % 2) != 0) {
-        score = score - 10;
+        score = score + 1;
     }
+    */
 
     return score;
 }

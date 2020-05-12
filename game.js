@@ -695,12 +695,16 @@ function bestMove(tmpLines) {
     var depth;
     var evalLines = getEvalLines(tmpLines);
     var linesLeft = evalLines.length;
+    /*
     if (linesLeft > 6) {
         depth = 2;
     }
     else {
         depth = 4;
     }
+    */
+    depth = 2;
+    console.clear();
     for (i = 0; i < evalLines.length; i++) {
         if (tmpLines[evalLines[i]] == false) {
             tmpLines[evalLines[i]] = true;
@@ -716,6 +720,7 @@ function bestMove(tmpLines) {
                 bestMoveScore = moveScore;
                 move = evalLines[i];
             }
+            console.log(evalLines[i] + ", " + moveScore);
         }
     }
 
@@ -841,17 +846,17 @@ function scoreLines(tmpLines, isMaximizing) {
 
     var numChains = getNumChains(tmpLines);
     if (firstTurn == "player2" && (numChains % 2) == 0) {
-        score = score + 10;
+        score = score - 10;
     }
     else if (firstTurn == "player2" && (numChains % 2) != 0) {
-        score = score - 10;
+        score = score + 10;
     }
 
     if (firstTurn == "player1" && (numChains % 2) == 0) {
-        score = score - 10;
+        score = score + 10;
     }
     else if (firstTurn == "player1" && (numChains % 2) != 0) {
-        score = score + 10;
+        score = score - 10;
     }
 
     return score;

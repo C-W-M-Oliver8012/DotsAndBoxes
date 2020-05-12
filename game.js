@@ -91,6 +91,69 @@ var lines = {
     box25: "nobody",
 };
 
+var lineIndex = {
+    line1: true,
+    line2: true,
+    line3: true,
+    line4: true,
+    line5: true,
+    line6: true,
+    line7: true,
+    line8: true,
+    line9: true,
+    line10: true,
+    line11: true,
+    line12: true,
+    line13: true,
+    line14: true,
+    line15: true,
+    line16: true,
+    line17: true,
+    line18: true,
+    line19: true,
+    line20: true,
+    line21: true,
+    line22: true,
+    line23: true,
+    line24: true,
+    line25: true,
+    line26: true,
+    line27: true,
+    line28: true,
+    line29: true,
+    line30: true,
+    line31: true,
+    line32: true,
+    line33: true,
+    line34: true,
+    line35: true,
+    line36: true,
+    line37: true,
+    line38: true,
+    line39: true,
+    line40: true,
+    line41: true,
+    line42: true,
+    line43: true,
+    line44: true,
+    line45: true,
+    line46: true,
+    line47: true,
+    line48: true,
+    line49: true,
+    line50: true,
+    line51: true,
+    line52: true,
+    line53: true,
+    line54: true,
+    line55: true,
+    line56: true,
+    line57: true,
+    line58: true,
+    line59: true,
+    line60: true
+};
+
 var boxIndex = {
     box1: {
         isFull: false,
@@ -332,11 +395,10 @@ function addLine(lineList, lineName) {
     }
 }
 
-function numChains(boxNum, boxList, lineList, cLines) {
+function evalChains(boxNum, boxList, lineList, fullLineList, lastLine, cLines) {
     var checkCurrentBox = true;
     var boxName = "box" + boxNum;
     var i;
-    var match;
     if ((boxes.lines_available(boxName, cLines) == 2 || boxes.lines_available(boxName, cLines) == 1) && boxIndex[boxName].state == true) {
         for (i = 0; i < boxList.length; i++) {
             if (boxList[i] == boxName) {
@@ -346,31 +408,84 @@ function numChains(boxNum, boxList, lineList, cLines) {
         if (checkCurrentBox == true) {
             boxList.push(boxName);
             if (boxes.top(boxName, cLines) == false) {
-                addLine(lineList, boxIndex[boxName].top);
+                addLine(fullLineList, boxIndex[boxName].top);
                 if (boxNum > 5) {
-                    numChains(boxNum - 5, boxList, lineList, cLines);
+                    evalChains(boxNum - 5, boxList, lineList, fullLineList, boxIndex[boxName].top, cLines);
+                }
+                else {
+                    addLine(lineList, boxIndex[boxName].top);
                 }
             }
             if (boxes.left(boxName, cLines) == false) {
-                addLine(lineList, boxIndex[boxName].left);
+                addLine(fullLineList, boxIndex[boxName].left);
                 if (boxNum != 1 && boxNum != 6 && boxNum != 11 && boxNum != 16 && boxNum != 21) {
-                    numChains(boxNum - 1, boxList, lineList, cLines);
+                    evalChains(boxNum - 1, boxList, lineList, fullLineList, boxIndex[boxName].left, cLines);
+                }
+                else {
+                    addLine(lineList, boxIndex[boxName].left);
                 }
             }
             if (boxes.right(boxName, cLines) == false) {
-                addLine(lineList, boxIndex[boxName].right);
+                addLine(fullLineList, boxIndex[boxName].right);
                 if ((boxNum % 5) != 0) {
-                    numChains(boxNum + 1, boxList, lineList, cLines);
+                    evalChains(boxNum + 1, boxList, lineList, fullLineList, boxIndex[boxName].right, cLines);
+                }
+                else {
+                    addLine(lineList, boxIndex[boxName].right);
                 }
             }
-            if (boxes.bottom(boxName, cLines) == false && boxNum < 21) {
-                addLine(lineList, boxIndex[boxName].bottom);
+            if (boxes.bottom(boxName, cLines) == false) {
+                addLine(fullLineList, boxIndex[boxName].bottom);
                 if (boxNum < 21) {
-                    numChains(boxNum + 5, boxList, lineList, cLines);
+                    evalChains(boxNum + 5, boxList, lineList, fullLineList, boxIndex[boxName].bottom, cLines);
+                }
+                else {
+                    addLine(lineList, boxIndex[boxName].bottom);
                 }
             }
         }
     }
+    else {
+        addLine(lineList, lastLine);
+    }
+
+    if (boxList.length > 2) {
+        boxIndex[boxName].state = false;
+        for (i = 0; i < fullLineList.length; i++) {
+            lineIndex[fullLineList[i]] = false;
+        }
+    }
+
+    return [boxList.length, lineList];
+}
+
+function getScoreChains(boxNum, boxList, cLines) {
+    var checkCurrentBox = true;
+    var boxName = "box" + boxNum;
+    var i;
+    if ((boxes.lines_available(boxName, cLines) == 2 || boxes.lines_available(boxName, cLines) == 1) && boxIndex[boxName].state == true) {
+        for (i = 0; i < boxList.length; i++) {
+            if (boxList[i] == boxName) {
+                checkCurrentBox = false;
+            }
+        }
+        if (checkCurrentBox == true) {
+            boxList.push(boxName);
+            if (boxes.top(boxName, cLines) == false && boxNum > 5) {
+                getScoreChains(boxNum - 5, boxList, cLines);
+            }
+            if (boxes.left(boxName, cLines) == false && boxNum != 1 && boxNum != 6 && boxNum != 11 && boxNum != 16 && boxNum != 21) {
+                getScoreChains(boxNum - 1, boxList, cLines);
+            }
+            if (boxes.right(boxName, cLines) == false && (boxNum % 5) != 0) {
+                getScoreChains(boxNum + 1, boxList, cLines);
+            }
+            if (boxes.bottom(boxName, cLines) == false && boxNum < 21) {
+                getScoreChains(boxNum + 5, boxList, cLines);
+            }
+        }
+    }
+
     if (boxList.length > 2) {
         boxIndex[boxName].state = false;
     }
@@ -378,11 +493,10 @@ function numChains(boxNum, boxList, lineList, cLines) {
     return boxList.length;
 }
 
-function loopChains(cLines) {
-    var totalwins = 0;
+function getNumChains(cLines) {
+    var numChains = 0;
     var chainLength = 0;
     var boxList = [];
-    var lineList = [];
     var i;
     for (i = 1; i < 26; i++) {
         var boxName = "box" + i;
@@ -390,10 +504,31 @@ function loopChains(cLines) {
     }
     for (i = 1; i < 26; i++) {
         boxList = [];
-        lineList = [];
+        var boxName = "box" + i;
+        chainLength = getScoreChains(i, boxList, cLines);
+
+        if (chainLength > 2) {
+            numChains++;
+        }
+    }
+
+    return numChains;
+}
+
+function scoreChains(cLines) {
+    var totalwins = 0;
+    var chainLength = 0;
+    var boxList = [];
+    var i;
+    for (i = 1; i < 26; i++) {
+        var boxName = "box" + i;
+        boxIndex[boxName].state = true;
+    }
+    for (i = 1; i < 26; i++) {
+        boxList = [];
         var boxName = "box" + i;
         if (boxes.lines_available(boxName, cLines) == 1) {
-            var chainLength = numChains(i, boxList, lineList, cLines);
+            chainLength = getScoreChains(i, boxList, cLines);
 
             if (chainLength > 2) {
                 totalwins = totalwins + chainLength;
@@ -402,6 +537,89 @@ function loopChains(cLines) {
     }
 
     return totalwins;
+}
+
+function getEvalLines(cLines) {
+    var totalwins = 0;
+    var chainLength = 0;
+    var boxList = [];
+    var lineList = [];
+    var fullLineList = [];
+    var evalLines = [];
+    var i;
+    for (i = 1; i < 61; i++) {
+        var lineName = "line" + i;
+        lineIndex[lineName] = true;
+    }
+    for (i = 1; i < 26; i++) {
+        var boxName = "box" + i;
+        boxIndex[boxName].state = true;
+    }
+    for (i = 1; i < 26; i++) {
+        boxList = [];
+        lineList = [];
+        fullLineList = [];
+        var boxName = "box" + i;
+        if (boxes.lines_available(boxName, cLines) == 1) {
+            if (cLines[boxIndex[boxName].top] == false) {
+                addLine(lineList, boxIndex[boxName].top);
+                addLine(fullLineList, boxIndex[boxName].top);
+                addLine(evalLines, boxIndex[boxName].top);
+            }
+            else if (cLines[boxIndex[boxName].left] == false) {
+                addLine(lineList, boxIndex[boxName].left);
+                addLine(fullLineList, boxIndex[boxName].left);
+                addLine(evalLines, boxIndex[boxName].left);
+            }
+            else if (cLines[boxIndex[boxName].right] == false) {
+                addLine(lineList, boxIndex[boxName].right);
+                addLine(fullLineList, boxIndex[boxName].right);
+                addLine(evalLines, boxIndex[boxName].right);
+            }
+            else if (cLines[boxIndex[boxName].bottom] == false) {
+                addLine(lineList, boxIndex[boxName].bottom);
+                addLine(fullLineList, boxIndex[boxName].bottom);
+                addLine(evalLines, boxIndex[boxName].bottom);
+            }
+            var data = evalChains(i, boxList, lineList, fullLineList, "null", cLines);
+
+            if (data[0] > 2) {
+                totalwins = totalwins + data[0];
+                evalLines = evalLines.concat(data[1]);
+            }
+        }
+        else if (boxes.lines_available(boxName, cLines) == 2) {
+            if (boxes.top(boxName, cLines) == false && i > 5) {
+                addLine(lineList, boxIndex[boxName].top);
+                addLine(fullLineList, boxIndex[boxName].top);
+            }
+            else if (boxes.left(boxName, cLines) == false && i != 1 && i != 6 && i != 11 && i != 16 && i != 21) {
+                addLine(lineList, boxIndex[boxName].left);
+                addLine(fullLineList, boxIndex[boxName].left);
+            }
+            else if (boxes.right(boxName, cLines) == false && (i % 5) != 0) {
+                addLine(lineList, boxIndex[boxName].right);
+                addLine(fullLineList, boxIndex[boxName].right);
+            }
+            else if (boxes.bottom(boxName, cLines) == false && i < 21) {
+                addLine(lineList, boxIndex[boxName].bottom);
+                addLine(fullLineList, boxIndex[boxName].bottom);
+            }
+            var data = evalChains(i, boxList, lineList, fullLineList, "null", cLines);
+            if (data[0] > 2) {
+                evalLines = evalLines.concat(data[1]);
+            }
+        }
+    }
+
+    for (i = 1; i < 61; i++) {
+        var lineName = "line" + i;
+        if (lineIndex[lineName] == true && cLines[lineName] == false) {
+            evalLines.push(lineName);
+        }
+    }
+
+    return evalLines;
 }
 
 function lineSelect(line) {
@@ -475,17 +693,17 @@ function bestMove(tmpLines) {
     var move;
     var i;
     var depth;
-    var linesLeft = movesLeft(tmpLines);
-    if (linesLeft > 10) {
+    var evalLines = getEvalLines(tmpLines);
+    var linesLeft = evalLines.length;
+    if (linesLeft > 6) {
         depth = 2;
     }
     else {
-        depth = 6;
+        depth = 4;
     }
-    for (i = 1; i < 61; i++) {
-        var lineName = "line" + i;
-        if (tmpLines[lineName] == false) {
-            tmpLines[lineName] = true;
+    for (i = 0; i < evalLines.length; i++) {
+        if (tmpLines[evalLines[i]] == false) {
+            tmpLines[evalLines[i]] = true;
             var tempData = filledBox(tmpLines, true);
             if (tempData[0] == true) {
                 moveScore = minimax(tempData[1], depth, -1000, 1000, true);
@@ -493,10 +711,10 @@ function bestMove(tmpLines) {
             else {
                 moveScore = minimax(tempData[1], depth, -1000, 1000, false);
             }
-            tmpLines[lineName] = false;
+            tmpLines[evalLines[i]] = false;
             if (moveScore > bestMoveScore) {
                 bestMoveScore = moveScore;
-                move = lineName;
+                move = evalLines[i];
             }
         }
     }
@@ -528,13 +746,13 @@ function minimax(tmpLines, depth, alpha, beta, isMaximizing) {
         return score;
     }
 
+    var evalLines = getEvalLines(tmpLines);
     if (isMaximizing == true) {
         var value = -1000;
         var i;
-        for (i = 1; i < 61; i++) {
-            var lineName = "line" + i;
-            if (tmpLines[lineName] == false) {
-                tmpLines[lineName] = true;
+        for (i = 0; i < evalLines.length; i++) {
+            if (tmpLines[evalLines[i]] == false) {
+                tmpLines[evalLines[i]] = true;
                 var tempData = filledBox(tmpLines, true);
                 if (tempData[0] == true) {
                     value = max(value, minimax(tempData[1], depth - 1, alpha, beta, true));
@@ -542,7 +760,7 @@ function minimax(tmpLines, depth, alpha, beta, isMaximizing) {
                 else {
                     value = max(value, minimax(tempData[1], depth - 1, alpha, beta, false));
                 }
-                tmpLines[lineName] = false;
+                tmpLines[evalLines[i]] = false;
                 alpha = max(alpha, value);
                 if (alpha >= beta) {
                     break;
@@ -554,10 +772,9 @@ function minimax(tmpLines, depth, alpha, beta, isMaximizing) {
     else {
         var value = 1000;
         var i;
-        for (i = 1; i < 61; i++) {
-            var lineName = "line" + i;
-            if (tmpLines[lineName] == false) {
-                tmpLines[lineName] = true;
+        for (i = 0; i < evalLines.length; i++) {
+            if (tmpLines[evalLines[i]] == false) {
+                tmpLines[evalLines[i]] = true;
                 var tempData = filledBox(tmpLines, false);
                 if (tempData[0] == true) {
                     value = min(value, minimax(tempData[1], depth - 1, alpha, beta, false));
@@ -565,7 +782,7 @@ function minimax(tmpLines, depth, alpha, beta, isMaximizing) {
                 else {
                     value = min(value, minimax(tempData[1], depth - 1, alpha, beta, true));
                 }
-                tmpLines[lineName] = false;
+                tmpLines[evalLines[i]] = false;
                 beta = min(beta, value);
                 if (alpha >= beta) {
                     break;
@@ -614,13 +831,27 @@ function scoreLines(tmpLines, isMaximizing) {
         }
     }
 
-    var chainCount = loopChains(tmpLines);
-
+    var chainCount = scoreChains(tmpLines);
     if (isMaximizing == true) {
         score = score + chainCount;
     }
     else {
         score = score - chainCount;
+    }
+
+    var numChains = getNumChains(tmpLines);
+    if (firstTurn == "player2" && (numChains % 2) == 0) {
+        score = score + 10;
+    }
+    else if (firstTurn == "player2" && (numChains % 2) != 0) {
+        score = score - 10;
+    }
+
+    if (firstTurn == "player1" && (numChains % 2) == 0) {
+        score = score - 10;
+    }
+    else if (firstTurn == "player1" && (numChains % 2) != 0) {
+        score = score + 10;
     }
 
     return score;

@@ -162,12 +162,12 @@
 
     <h2>How the AI works</h2>
     <p>The AI uses the minimax algorithm to search the game tree in order to find the best move. Alpha beta pruning is used to to disregard game trees that will not yield good results, thus
-        speeding up the game tree search.</p>
+        speeding up the game tree search. The board is also analyzed to detect chains. One chain is norrowed down to 3 possible moved instead of analyzing every board position.</p>
 
     <h2>Future improvements</h2>
     <p>Everything seems to work exactly how I would expect it to, however, there is no doubt in my mind that there are bugs in my code. Much work needs to be done with the data structures in order
-        to create a scalable version of this game. The code is is currently undocumented and the result of a day and a half long code sprint. My next goal is to add in cluster detection, because
-        as of now the Ai consistently picks the wrong move. In the future, it is very likely that I could implement machine learning, aka "save points" into the code.</p>
+        to create a scalable version of this game. The code is is currently undocumented. Now that chains are detected, I need to find a better way to determine if the end game will have an even or odd
+        number of chains as searching the entire game tree is infeasable.</p>
 
     <script src="game.js"></script>
 </body>
